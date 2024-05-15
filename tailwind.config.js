@@ -3,6 +3,12 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+      },
+      boxShadow: {
+        all: "0 0px 10px 0px var(--tw-shadow-color)",
+      },
       colors: {
         "primary-main": "#DE4815",
         "primary-bg": "#70147A",

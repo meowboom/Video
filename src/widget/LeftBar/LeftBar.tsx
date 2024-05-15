@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const LeftBar = (props: Props) => {
-  return (
-    <div>LeftBar</div>
-  )
-}
+  return <div className="border">LeftBar</div>;
+};
 
-export default LeftBar
+export default LeftBar;
