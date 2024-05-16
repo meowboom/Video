@@ -10,6 +10,7 @@ const HomeScreen = ({ children }: Props) => {
   return (
     <div className="h-screen w-full ">
       <Header />
+      {/* Dropdown working correctly, but line HR prevents him */}
       <HrLine />
       <div className="mt-5 flex w-full justify-between">
         <LeftBar />

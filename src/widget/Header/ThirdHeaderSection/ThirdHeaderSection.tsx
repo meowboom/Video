@@ -1,16 +1,14 @@
-import React from "react";
-import MyButton from "../../../share/MyButton/MyButton";
+import React, { FC } from "react";
+import ButtonSection from "./ButtonSection/ButtonSection";
+import UserAccount from "./UserAccount/UserAccount";
 
 type Props = {};
 
-const ThirdHeaderSection = (props: Props) => {
+const ThirdHeaderSection: FC<Props> = () => {
+  const isLogin = true;
   return (
     <div className="flex w-full items-center justify-center">
-      <div className=" flex justify-end xl:w-2/3">
-        <MyButton isFill={true} text="Log In" />
-
-        <MyButton isFill={false} text="Register" />
-      </div>
+      {isLogin ? <UserAccount /> : <ButtonSection />}
     </div>
   );
 };

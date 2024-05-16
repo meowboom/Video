@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import FirstHeaderSection from "./FirstHeaderSection/FirstHeaderSection";
 import SecondHeaderSection from "./SecondHeaderSection/SecondHeaderSection";
 import ThirdHeaderSection from "./ThirdHeaderSection/ThirdHeaderSection";
