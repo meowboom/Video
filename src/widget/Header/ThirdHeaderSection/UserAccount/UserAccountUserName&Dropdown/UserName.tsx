@@ -21,14 +21,13 @@ const UserName = (props: Props) => {
       </div>
 
       {/* Dropdown */}
-      {/* Dropdown working correctly, but line HR prevents him */}
 
       <div>
         <div
-          className={`${isVisible ? "block" : "hidden"} absolute top-[57px] `}
+          className={`${isVisible ? "block" : "hidden"} absolute top-[57px] z-50`}
         >
           <div className="h-8" />
-          <div className="h-72 w-40 rounded-xl bg-[#464343] shadow-all shadow-white">
+          <div className="h-72 w-40 rounded-md bg-[#464343] shadow-all shadow-white/30">
             <div className="flex h-full w-full flex-col items-center justify-around py-10">
               <a
                 href="#"
