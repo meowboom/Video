@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import ButtonSection from "./ButtonSection/ButtonSection";
-import UserAccount from "./UserAccount/UserAccount";
+import UserAccount from "../../../entities/UserAccount/UserAccount";
+import ButtonSection from "../../../entities/ButtonSection/ButtonSection";
 
 type Props = {};
 

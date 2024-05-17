@@ -1,6 +1,6 @@
 import React from "react";
 import { categories } from ".";
-import HrLine from "../../../share/HrLine/HrLine";
+import HrLine from "../../share/HrLine/HrLine";
 
 type Props = { title: "Films" | "Serials" };
 

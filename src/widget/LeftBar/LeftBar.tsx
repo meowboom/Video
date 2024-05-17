@@ -1,5 +1,5 @@
 import React from "react";
-import CategoryCard from "./CategoryCard/CategoryCard";
+import CategoryCard from "../../entities/CategoryCard/CategoryCard";
 
 type Props = {};
 

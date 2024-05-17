@@ -1,5 +1,5 @@
 import React from "react";
-import MyButton from "../../../../share/MyButton/MyButton";
+import MyButton from "../../share/MyButton/MyButton";
 
 type Props = {};
 

@@ -1,11 +1,10 @@
 import React from "react";
-import CheckStatus from "../../../../share/CheckStatus/CheckStatus";
-import UserName from "./UserAccountUserName&Dropdown/UserName";
+import CheckStatus from "../../share/CheckStatus/CheckStatus";
+import UserName from "../../widget/Header/ThirdHeaderSection/UserAccount/UserAccountUserName&Dropdown/UserName";
 
 type Props = {};
 
 const UserAccount = (props: Props) => {
-
   return (
     <div className="flex items-center justify-center gap-4">
       <div>
@@ -18,7 +17,7 @@ const UserAccount = (props: Props) => {
         />
       </div>
       <UserName />
-      <CheckStatus />  
+      <CheckStatus />
     </div>
   );
 };

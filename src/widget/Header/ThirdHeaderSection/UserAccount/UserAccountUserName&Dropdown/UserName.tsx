@@ -24,7 +24,7 @@ const UserName = (props: Props) => {
 
       <div>
         <div
-          className={`${isVisible ? "block" : "hidden"} absolute top-[57px] z-50`}
+          className={`${isVisible ? "visible opacity-100" : "invisible  scale-75 opacity-0"} absolute top-[57px] z-50 duration-500`}
         >
           <div className="h-8" />
           <div className="h-72 w-40 rounded-md bg-[#464343] shadow-all shadow-white/30">

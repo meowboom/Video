@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       animation: {
-        "spin-slow": "spin 3s linear infinite",
+        "spin-slow": "spin 2s linear infinite",
       },
       boxShadow: {
         all: "0 0px 10px 0px var(--tw-shadow-color)",
@@ -14,7 +14,7 @@ export default {
         "primary-bg": "#70147A",
         "primary-hover": "#FAD480",
         "secondary-green": "#16E783",
-        "secondary-yellow": "FFF500",
+        "secondary-yellow": "#FFF500",
       },
     },
   },

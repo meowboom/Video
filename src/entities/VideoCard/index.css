@@ -1,0 +1,35 @@
+.wrap {
+  display: table-cell;
+  vertical-align: middle;
+  perspective: 600px;
+}
+
+.item {
+  margin: 0 auto;
+  width: 240px;
+  height: 300px;
+}
+
+.item:hover .item-inner {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.item-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s;
+  transform-style: preserve-3d;
+  transform-origin: right center;
+}
+
+.preview,
+.description {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.description {
+  transform: rotateY(180deg);
+}
