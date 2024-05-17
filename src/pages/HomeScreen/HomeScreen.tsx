@@ -13,8 +13,9 @@ const HomeScreen = ({ children }: Props) => {
     <div className="h-full w-full ">
       <Header />
       <div className="pt-36">
-        <div className="mt-5 flex w-full justify-center">
+        <div className="mt-5 flex w-full justify-center border-t">
           <LeftBar />
+          {/* Повесить сортировку на кнопки */}
           <MainBody children={<FilmCards arr={FILMS} />} />
           <RightBar />
         </div>

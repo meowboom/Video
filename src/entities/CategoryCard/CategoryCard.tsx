@@ -19,7 +19,7 @@ const CategoryCard = ({ title }: Props) => {
         ))}
       </div>
       <HrLine />
-      <button className="mt-[6px] rounded-sm px-3 pb-1 text-[16px] text-primary-main underline-offset-4 duration-300 hover:bg-white/10 hover:text-secondary-green/60 hover:underline">
+      <button className="mt-[6px] rounded-sm px-3 pb-1 text-[16px] text-primary-main underline-offset-4 duration-300 hover:bg-white/10 hover:text-primary-hover hover:underline">
         Random
       </button>
     </section>

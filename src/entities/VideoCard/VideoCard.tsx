@@ -10,9 +10,13 @@ const VideoCard = ({
   posterURL,
   rate,
   title,
+  year,
 }: IFilm) => {
   return (
-    <div className="hover:shadow-primary-hover[#D9D9D9]/30 flex h-[380px] w-64 cursor-pointer flex-col items-center justify-center overflow-hidden rounded-md bg-[#D9D9D9]/5 p-[2px] text-center shadow-all shadow-white/25 duration-500">
+    <div
+      id={`${year}`}
+      className="flex h-[380px] w-64 cursor-pointer flex-col items-center justify-center overflow-hidden rounded-lg bg-[#D9D9D9]/5 p-[2px] text-center shadow-all shadow-[#D9D9D9]/30 duration-500  hover:shadow-primary-hover"
+    >
       <div>
         <div className="wrap">
           <div className="item">
