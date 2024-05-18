@@ -1,34 +1,34 @@
 import { FILMS } from "../widget/FilmCards/data";
-import { SortBtn } from "../widget/MainBody/MainBody";
+import { ENUMSortBtn } from "../widget/MainBody";
 
-// Доработать сортировку
-
-export const sortByParams = (variant: SortBtn) => {
+export const sortByParams = (variant: ENUMSortBtn) => {
   FILMS.sort((a, b) => {
     switch (variant) {
-      //   case variant === SortBtn.lettersUp:
-      //     return b.title - a.title;
-      //     break;
-      //   case variant === SortBtn.lettersDown:
-      //     return a.title - b.title;
-      //     break;
-      case SortBtn.yearUp:
+      case ENUMSortBtn.lettersUp:
+        return b.title.toLowerCase() > a.title.toLowerCase();
+        break;
+      case ENUMSortBtn.lettersDown:
+        return a.title.toLowerCase() > b.title.toLowerCase();
+        break;
+      case ENUMSortBtn.yearUp:
         return b.year - a.year;
         break;
-      case SortBtn.yearDown:
+      case ENUMSortBtn.yearDown:
         return a.year - b.year;
         break;
-      case SortBtn.ratingUp:
+      case ENUMSortBtn.ratingUp:
         return b.rate - a.rate;
         break;
-      case SortBtn.ratingDown:
+      case ENUMSortBtn.ratingDown:
+        console.log(ENUMSortBtn.ratingDown);
         return a.rate - b.rate;
         break;
-      //   case variant === SortBtn.favorite:
-      //     return b.favorite - a.favorite;
-      //     break;
+
       default:
         break;
     }
   });
 };
+
+export const filterByParams = () =>
+  FILMS.filter(({ favorite }) => favorite === true);
