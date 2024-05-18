@@ -5,7 +5,7 @@ import { FILMS } from "../../widget/FilmCards/data";
 type Props = {};
 
 const DailyTop = (props: Props) => {
-   const dailyTopVideo = FILMS.sort((a, b) => b.rate - a.rate)[0];
+  const dailyTopVideo = FILMS.sort((a, b) => b.rate - a.rate)[0];
 
   return (
     <div className="mb-5">
