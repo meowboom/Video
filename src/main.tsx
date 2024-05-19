@@ -11,6 +11,7 @@ import FilmCards from "./widget/FilmCards/FilmCards.tsx";
 import { FILMS } from "./widget/FilmCards/data.tsx";
 import MainBody from "./widget/MainBody/MainBody.tsx";
 import DailyTop from "./entities/Daily/DailyTop.tsx";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const router = createBrowserRouter([
   {
@@ -38,10 +39,13 @@ const router = createBrowserRouter([
     element: <HomeScreen children={<MainBody children={<DailyTop />} />} />,
   },
 ]);
+const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Wrapper>
-      <RouterProvider router={router} />
-    </Wrapper>
+    <QueryClientProvider client={queryClient}>
+      <Wrapper>
+        <RouterProvider router={router} />
+      </Wrapper>
+    </QueryClientProvider>
   </React.StrictMode>,
 );

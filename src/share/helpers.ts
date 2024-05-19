@@ -32,3 +32,4 @@ export const sortByParams = (variant: ENUMSortBtn) => {
 
 export const filterByParams = () =>
   FILMS.filter(({ favorite }) => favorite === true);
+
