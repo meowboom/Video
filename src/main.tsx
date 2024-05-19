@@ -10,6 +10,7 @@ import FilmPage from "./widget/FilmPage/FilmPage.tsx";
 import FilmCards from "./widget/FilmCards/FilmCards.tsx";
 import { FILMS } from "./widget/FilmCards/data.tsx";
 import MainBody from "./widget/MainBody/MainBody.tsx";
+import DailyTop from "./entities/Daily/DailyTop.tsx";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/:title",
     element: <HomeScreen children={<MainBody children={<FilmPage />} />} />,
+  },
+  {
+    path: "/:title",
+    element: <HomeScreen children={<MainBody children={<DailyTop />} />} />,
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")!).render(

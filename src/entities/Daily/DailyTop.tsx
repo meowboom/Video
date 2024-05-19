@@ -1,6 +1,7 @@
 import React from "react";
 import VideoCard from "../VideoCard/VideoCard";
 import { FILMS } from "../../widget/FilmCards/data";
+import { Link } from "react-router-dom";
 
 type Props = {};
 
@@ -10,7 +11,7 @@ const DailyTop = (props: Props) => {
   return (
     <div className="mb-5">
       <div className=" mb-3 text-center text-2xl">Daily Top</div>
-      <div>
+      <Link to={`/${dailyTopVideo.title}`}>
         <VideoCard
           favorite={dailyTopVideo.favorite}
           posterURL={dailyTopVideo.posterURL}
@@ -19,7 +20,7 @@ const DailyTop = (props: Props) => {
           description={dailyTopVideo.description}
           year={dailyTopVideo.year}
         />
-      </div>
+      </Link>
     </div>
   );
 };
