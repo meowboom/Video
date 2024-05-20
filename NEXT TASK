@@ -1,13 +1,20 @@
 Create My Profile 50% ok
+Create Price page 70% ok
+Add actual film from API
+
 Create Auth
-Create Price page
 
 Find/Create json
 
 Create store (big deal) and fix all
+
 Create sort for category
 Create filter for "Random"
 Make the input "Search" + searchBtn should work when press key "Enter"
+Destructurize main moved router to separate index
+
+Fixed PriceCard position a small screen
+Add to PriceCard paid switcher
 
 Finalize video player in Film Page
 In FilmPage add Arrow Back and mb feedback?

@@ -39,7 +39,9 @@ const router = createBrowserRouter([
     element: <HomeScreen children={<MainBody children={<DailyTop />} />} />,
   },
 ]);
+
 const queryClient = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>

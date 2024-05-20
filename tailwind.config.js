@@ -3,8 +3,22 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      keyframes: {
+        "bounce-card": {
+          "0%": {
+            marginTop: "20vh",
+          },
+          "50%": {
+            marginTop: "18vh",
+          },
+          "100%": {
+            marginTop: "20vh",
+          },
+        },
+      },
       animation: {
         "spin-slow": "spin 2s linear infinite",
+        "bounce-card": "bounce-card 3s infinite",
       },
       boxShadow: {
         all: "0 0px 10px 0px var(--tw-shadow-color)",
