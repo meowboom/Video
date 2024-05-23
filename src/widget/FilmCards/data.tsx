@@ -1,14 +1,14 @@
-export interface IFilm {
-  posterURL: string;
-  title: string;
-  rate: number;
-  description?: string;
-  favorite: boolean;
-  year: number;
-  id?: string;
-}
+// export interface IFilm {
+//   posterURL: string;
+//   title: string;
+//   rate: number;
+//   description?: string;
+//   favorite: boolean;
+//   year: number;
+//   id?: string;
+// }
 
-export type IFilms = IFilm[];
+// export type IFilms = IFilm[];
 
 export const FILMS: IFilms = [
   {

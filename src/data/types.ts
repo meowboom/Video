@@ -17,13 +17,19 @@ export interface IFilm {
   title: string;
   thumbnailUrl: string;
   duration: string;
-  uploadTime: string;
+  uploadTime: {
+    day: string;
+    month: string;
+    year: string;
+  };
   views: string;
   author: string;
   videoUrl: string;
   description: string;
-  subscriber: string;
-  isLive: boolean;
+  isFavorite: string;
+  rate: string;
+  category: string;
+  genre: string;
   screenshots: string[];
 }
 

@@ -8,7 +8,6 @@ import MyProfile from "./pages/MyProfil/MyProfile.tsx";
 import TariffPlans from "./pages/TariffPlan/TariffPlans.tsx";
 import FilmPage from "./widget/FilmPage/FilmPage.tsx";
 import FilmCards from "./widget/FilmCards/FilmCards.tsx";
-import { FILMS } from "./widget/FilmCards/data.tsx";
 import MainBody from "./widget/MainBody/MainBody.tsx";
 import DailyTop from "./entities/Daily/DailyTop.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -16,11 +15,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <HomeScreen
-        children={<MainBody children={<FilmCards arr={FILMS} />} />}
-      />
-    ),
+    element: <HomeScreen children={<MainBody children={<FilmCards />} />} />,
   },
   {
     path: "/my-profile",
@@ -31,7 +26,7 @@ const router = createBrowserRouter([
     element: <TariffPlans />,
   },
   {
-    path: "/:title",
+    path: "/:id",
     element: <HomeScreen children={<MainBody children={<FilmPage />} />} />,
   },
   {

@@ -1,5 +1,10 @@
+import { create } from "zustand";
 import { FILMS } from "../widget/FilmCards/data";
 import { ENUMSortBtn } from "../widget/MainBody";
+import { useQuery } from "@tanstack/react-query";
+import { useFetch } from "./hooks";
+import { FILMS_URL } from "../data/data";
+import { IFilms } from "../data/types";
 
 export const sortByParams = (variant: ENUMSortBtn) => {
   FILMS.sort((a, b) => {
@@ -33,3 +38,13 @@ export const sortByParams = (variant: ENUMSortBtn) => {
 export const filterByParams = () =>
   FILMS.filter(({ favorite }) => favorite === true);
 
+const { data, isLoading, isFetching } = useQuery({
+  queryKey: ["films"],
+  queryFn: () => useFetch(FILMS_URL),
+});
+
+export const useFilms = create((set) => ({
+  films: data,
+  filterByParams: (id: string) =>
+    set((state: any) => ({ films: state.films.id === id })),
+}));

@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import { FILMS, IFilm } from "../../widget/FilmCards/data";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/20/solid";
+import { IFilm } from "../../data/types";
 
-type Props = { film: IFilm };
-
-const PosterForFilmPage = ({ film }: Props) => {
+const PosterForFilmPage = ({ film }: { film: IFilm }) => {
   const [activeImg, setActiveImg] = useState(1);
 
   return (
     <div className="flex w-1/2 select-none flex-col items-center justify-center">
       <div>
         <img
-          src={film.posterURL}
+          src={film.thumbnailUrl}
           alt="poster"
           className="h-[550px] rounded-lg shadow-all shadow-black/70"
         />
@@ -24,46 +22,14 @@ const PosterForFilmPage = ({ film }: Props) => {
           <ArrowLeftIcon className="size-6" />
         </div>
         <div className="flex w-10/12 justify-around">
-          <button
-            onClick={() => setActiveImg(1)}
-            className={`${activeImg === 1 ? "shadow-primary-main" : "shadow-white/40"} rounded-xl shadow-all  duration-300 hover:shadow-primary-main`}
-          >
-            <img
-              src={film.posterURL}
-              className="size-16 rounded-xl "
-              alt="pre"
-            />
-          </button>
-          <button
-            onClick={() => setActiveImg(2)}
-            className={`${activeImg === 2 ? "shadow-primary-main" : "shadow-white/40"} rounded-xl shadow-all  duration-300 hover:shadow-primary-main`}
-          >
-            <img
-              src={film.posterURL}
-              className="size-16 rounded-xl "
-              alt="pre"
-            />
-          </button>
-          <button
-            onClick={() => setActiveImg(3)}
-            className={`${activeImg === 3 ? "shadow-primary-main" : "shadow-white/40"} rounded-xl shadow-all  duration-300 hover:shadow-primary-main`}
-          >
-            <img
-              src={film.posterURL}
-              className="size-16 rounded-xl "
-              alt="pre"
-            />
-          </button>
-          <button
-            onClick={() => setActiveImg(4)}
-            className={`${activeImg === 4 ? "shadow-primary-main" : "shadow-white/40"} rounded-xl shadow-all  duration-300 hover:shadow-primary-main`}
-          >
-            <img
-              src={film.posterURL}
-              className="size-16 rounded-xl "
-              alt="pre"
-            />
-          </button>
+          {film.screenshots.map((img, i) => (
+            <button
+              onClick={() => setActiveImg(i)}
+              className={`${activeImg === i ? "shadow-primary-main" : "shadow-white/40"} rounded-xl shadow-all  duration-300 hover:shadow-primary-main`}
+            >
+              <img src={img} className="size-16 rounded-xl " alt="pre" />
+            </button>
+          ))}
         </div>
         <div
           onClick={() => activeImg < 4 && setActiveImg(activeImg + 1)}
