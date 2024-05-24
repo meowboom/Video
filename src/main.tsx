@@ -30,7 +30,7 @@ const router = createBrowserRouter([
     element: <HomeScreen children={<MainBody children={<FilmPage />} />} />,
   },
   {
-    path: "/:title",
+    path: "/:id",
     element: <HomeScreen children={<MainBody children={<DailyTop />} />} />,
   },
 ]);

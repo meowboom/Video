@@ -1,4 +1,4 @@
-Create store (big deal) and fix all 10%
+Create store (big deal) and fix all 20%
 Create My Profile 50% ok
 Create Price page 70% ok
 Add actual film from API fix json (new img)
@@ -7,7 +7,6 @@ Create Auth
 
 Find/Create json
 
-
 Create sort for category
 Create filter for "Random"
 Make the input "Search" + searchBtn should work when press key "Enter"
@@ -15,11 +14,11 @@ Destructurize main moved router to separate index
 
 Fixed PriceCard position a small screen
 Add to PriceCard paid switcher
-
 Finalize video player in Film Page
 In FilmPage add Arrow Back and mb feedback?
 Why if back to main all films sorted?
-Fix "favorite" (if i want add to favorite me redirecting)
+Fix "favorite" (if i want add to favorite me redirecting) + css
+FilmCards do hover titel
 
 Adaptation (It last)
 

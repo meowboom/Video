@@ -34,3 +34,10 @@ export interface IFilm {
 }
 
 export interface IFilms extends Array<IFilm> {}
+
+// For Zustand
+export interface IFilmsStore {
+  films: IFilms;
+  setFilms: (films: IFilms) => void | unknown | undefined | null | any;
+  getFilm: (id: string) => any;
+}

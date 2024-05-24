@@ -1,27 +1,34 @@
 import React from "react";
 import VideoCard from "../VideoCard/VideoCard";
-import { FILMS } from "../../widget/FilmCards/data";
 import { Link } from "react-router-dom";
+import { useFilms } from "../../storage/storage";
+import { IFilm } from "../../data/types";
+import Loader from "../../share/Loader/Loader";
 
-type Props = {};
-
-const DailyTop = (props: Props) => {
-  const dailyTopVideo = FILMS.sort((a, b) => b.rate - a.rate)[0];
-
+const DailyTop = () => {
+  const { getFilm } = useFilms();
+  const dailyTopVideo: IFilm = getFilm("6");
   return (
-    <div className="mb-5">
-      <div className=" mb-3 text-center text-2xl">Daily Top</div>
-      <Link to={`/${dailyTopVideo.title}`}>
-        <VideoCard
-          favorite={dailyTopVideo.favorite}
-          posterURL={dailyTopVideo.posterURL}
-          rate={dailyTopVideo.rate}
-          title={dailyTopVideo.title}
-          description={dailyTopVideo.description}
-          year={dailyTopVideo.year}
-        />
-      </Link>
-    </div>
+    <>
+      {!dailyTopVideo ? (
+        <Loader />
+      ) : (
+        <div className="mb-5">
+          <div className=" mb-3 text-center text-2xl">Daily Top</div>
+          <Link to={`/id${dailyTopVideo.id}`}>
+            <VideoCard
+              id={dailyTopVideo.id}
+              isFavorite={dailyTopVideo.isFavorite}
+              thumbnailUrl={dailyTopVideo.thumbnailUrl}
+              rate={dailyTopVideo.rate}
+              title={dailyTopVideo.title}
+              description={dailyTopVideo.description}
+              year={dailyTopVideo?.uploadTime.year}
+            />
+          </Link>
+        </div>
+      )}
+    </>
   );
 };
 
