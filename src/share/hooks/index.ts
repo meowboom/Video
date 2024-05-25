@@ -1,5 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+
+import { useQuery } from "@tanstack/react-query";
 import { FILMS_URL } from "../../data/data";
 import { IFilms } from "../../data/types";
 

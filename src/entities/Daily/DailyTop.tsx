@@ -2,12 +2,12 @@ import React from "react";
 import VideoCard from "../VideoCard/VideoCard";
 import { Link } from "react-router-dom";
 import { useFilms } from "../../storage/storage";
-import { IFilm } from "../../data/types";
 import Loader from "../../share/Loader/Loader";
+import { IFilm } from "../../data/types";
 
 const DailyTop = () => {
-  const { getFilm } = useFilms();
-  const dailyTopVideo: IFilm = getFilm("6");
+  const { getDailyFilm } = useFilms();
+  const dailyTopVideo: IFilm = getDailyFilm();
   return (
     <>
       {!dailyTopVideo ? (

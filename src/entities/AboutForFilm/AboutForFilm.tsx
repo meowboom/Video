@@ -3,7 +3,7 @@ import HrLine from "../../share/HrLine/HrLine";
 import { IFilm } from "../../data/types";
 
 const AboutForFilm = ({ film }: { film: IFilm }) => {
-  console.log(film);
+  // console.log(film);
 
   return (
     <div className="flex w-1/2 flex-col items-center text-center">

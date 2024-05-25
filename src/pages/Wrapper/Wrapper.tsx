@@ -6,15 +6,19 @@ import Loader from "../../share/Loader/Loader";
 type Props = { children: ReactNode };
 
 const Wrapper = ({ children }: Props) => {
-  const { data } = useFetchFilms();
+  const { data, isLoading } = useFetchFilms();
   const { films, setFilms } = useFilms();
   useEffect(() => data && setFilms(data), [data]);
+
   return (
     <>
-      {films ? (
+      {isLoading && (
+        <div className="flex h-screen w-full items-center justify-center">
+          <Loader />
+        </div>
+      )}
+      {films.length > 0 && !isLoading && (
         <div className="h-full w-full px-24">{children}</div>
-      ) : (
-        <Loader />
       )}
     </>
   );

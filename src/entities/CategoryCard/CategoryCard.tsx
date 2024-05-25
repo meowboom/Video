@@ -1,20 +1,28 @@
 import React from "react";
 import { categories } from ".";
 import HrLine from "../../share/HrLine/HrLine";
+import { useFilms } from "../../storage/storage";
 
 type Props = { title: "Films" | "Serials" };
 
 const CategoryCard = ({ title }: Props) => {
+  const { films } = useFilms();
+
   return (
     <section className="item-center mb-5 flex flex-col items-center justify-center rounded-md bg-[#D9D9D9]/5 px-10 py-2 shadow-all shadow-white/25">
-      <h3 className="mx-auto mb-2 text-xl text-primary-main">{title}</h3>
+      <h3
+        className="mx-auto mb-2 cursor-pointer text-xl text-primary-main"
+        onClick={() => console.log(films)}
+      >
+        {title}
+      </h3>
       <div className="mb-2 text-center">
         {categories.map((value, i) => (
           <nav
             key={i}
             className="rounded-sm px-3 py-[1px] text-sm decoration-primary-main underline-offset-4 duration-300 hover:bg-white/10 hover:underline"
           >
-            <a href="#">{value}</a>
+            <button>{value}</button>
           </nav>
         ))}
       </div>

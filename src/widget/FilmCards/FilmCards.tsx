@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import VideoCard from "../../entities/VideoCard/VideoCard";
 import SortBtn from "../../share/SortBtn/SortBtn";
 import { BTN_FOR_SORT } from "../MainBody";
@@ -13,19 +13,19 @@ const FilmCards = () => {
   return (
     <div>
       <div className="invisible mb-4 mt-1 flex w-full items-center justify-center lg:visible">
-        {BTN_FOR_SORT.map(({ title, img, onClick }, id) => (
+        {/* {BTN_FOR_SORT.map(({ title, img, onClick }, id) => (
           <SortBtn
             title={title}
             img={img}
             key={id}
             onClick={() => onClick(title)}
           />
-        ))}
+        ))} */}
       </div>
-      <div className="flex flex-wrap justify-center gap-10">
+      <div className="flex flex-wrap justify-center gap-10" key={uniqueKey()}>
         {films &&
           films.map((film: IFilm) => (
-            <Link to={`/id${film.id}`}>
+            <Link key={uniqueKey()} to={`/id${film.id}`}>
               <VideoCard
                 key={uniqueKey()}
                 id={film.id}

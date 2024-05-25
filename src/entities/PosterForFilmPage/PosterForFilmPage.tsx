@@ -22,7 +22,7 @@ const PosterForFilmPage = ({ film }: { film: IFilm }) => {
           <ArrowLeftIcon className="size-6" />
         </div>
         <div className="flex w-10/12 justify-around">
-          {film.screenshots.map((img, i) => (
+          {film.preview?.screen?.map((img, i) => (
             <button
               onClick={() => setActiveImg(i)}
               className={`${activeImg === i ? "shadow-primary-main" : "shadow-white/40"} rounded-xl shadow-all  duration-300 hover:shadow-primary-main`}

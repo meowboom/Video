@@ -30,7 +30,10 @@ export interface IFilm {
   rate: string;
   category: string;
   genre: string;
-  screenshots: string[];
+  preview: {
+    screen: [];
+    trailer: string;
+  };
 }
 
 export interface IFilms extends Array<IFilm> {}
@@ -38,6 +41,11 @@ export interface IFilms extends Array<IFilm> {}
 // For Zustand
 export interface IFilmsStore {
   films: IFilms;
+  // copyFilms: IFilms;
   setFilms: (films: IFilms) => void | unknown | undefined | null | any;
+  // setCopyFilms: (films: IFilms) => void | unknown | undefined | null | any;
+
   getFilm: (id: string) => any;
+  // setFilterByCategory: (category: string) => void;
+  getDailyFilm: () => IFilm;
 }
