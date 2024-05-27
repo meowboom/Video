@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useFilms } from "../../../storage/storage";
 
-type Props = {};
+const SecondHeaderSection = () => {
+  const [inputValue, setInputValue] = useState<string>("");
+  const { films, setCopyFilms } = useFilms();
 
-const SecondHeaderSection = (props: Props) => {
+  useEffect(() => {
+    const filteredFilms = films.filter((film) =>
+      film.title.toLowerCase().trim().includes(inputValue.toLowerCase().trim()),
+    );
+    if (filteredFilms.length === 0) {
+      setCopyFilms([]);
+    } else {
+      setCopyFilms(filteredFilms);
+    }
+    if (inputValue === "") {
+      setCopyFilms(films);
+    }
+  }, [inputValue]);
+
   return (
     <div className="flex w-full items-center justify-center">
       <div className="flex h-12 w-4/5 items-center justify-center  ">
         <input
+          onChange={({ target }) => setInputValue(target.value)}
           type="text"
+          value={inputValue}
           placeholder="Search..."
           className="h-12 w-10/12 cursor-pointer rounded-l-[20px] border-2 border-primary-main border-r-transparent bg-white/15 pl-4 text-xl text-primary-hover outline-none  duration-500 placeholder:text-xl placeholder:text-gray-400 hover:bg-white/20 focus:bg-white/30 focus:placeholder:text-transparent "
         />

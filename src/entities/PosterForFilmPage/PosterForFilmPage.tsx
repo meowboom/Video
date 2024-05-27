@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/20/solid";
 import { IFilm } from "../../data/types";
+import { uniqueKey } from "../../share/helpers";
 
 const PosterForFilmPage = ({ film }: { film: IFilm }) => {
   const [activeImg, setActiveImg] = useState(1);
@@ -23,12 +24,14 @@ const PosterForFilmPage = ({ film }: { film: IFilm }) => {
         </div>
         <div className="flex w-10/12 justify-around">
           {film.preview?.screen?.map((img, i) => (
-            <button
-              onClick={() => setActiveImg(i)}
-              className={`${activeImg === i ? "shadow-primary-main" : "shadow-white/40"} rounded-xl shadow-all  duration-300 hover:shadow-primary-main`}
-            >
-              <img src={img} className="size-16 rounded-xl " alt="pre" />
-            </button>
+            <div key={uniqueKey()}>
+              <button
+                onClick={() => setActiveImg(i)}
+                className={`${activeImg === i ? "shadow-primary-main" : "shadow-white/40"} rounded-xl shadow-all  duration-300 hover:shadow-primary-main`}
+              >
+                <img src={img} className="size-16 rounded-xl " alt="pre" />
+              </button>
+            </div>
           ))}
         </div>
         <div

@@ -31,7 +31,7 @@ export interface IFilm {
   category: string;
   genre: string;
   preview: {
-    screen: [];
+    screen: string[];
     trailer: string;
   };
 }
@@ -40,12 +40,18 @@ export interface IFilms extends Array<IFilm> {}
 
 // For Zustand
 export interface IFilmsStore {
-  films: IFilms;
+  films: IFilms | [];
+  copyFilms: IFilms | [];
+
   // copyFilms: IFilms;
   setFilms: (films: IFilms) => void | unknown | undefined | null | any;
+  setCopyFilms: (
+    changedFilms: IFilms,
+  ) => void | unknown | undefined | null | any;
   // setCopyFilms: (films: IFilms) => void | unknown | undefined | null | any;
 
   getFilm: (id: string) => any;
   // setFilterByCategory: (category: string) => void;
   getDailyFilm: () => IFilm;
+  filterFilmsByParams: (value: string) => any;
 }

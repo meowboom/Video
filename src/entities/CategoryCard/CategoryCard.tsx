@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { categories } from ".";
 import HrLine from "../../share/HrLine/HrLine";
 import { useFilms } from "../../storage/storage";
@@ -6,13 +6,13 @@ import { useFilms } from "../../storage/storage";
 type Props = { title: "Films" | "Serials" };
 
 const CategoryCard = ({ title }: Props) => {
-  const { films } = useFilms();
+  const { filterFilmsByParams } = useFilms();
 
   return (
     <section className="item-center mb-5 flex flex-col items-center justify-center rounded-md bg-[#D9D9D9]/5 px-10 py-2 shadow-all shadow-white/25">
       <h3
         className="mx-auto mb-2 cursor-pointer text-xl text-primary-main"
-        onClick={() => console.log(films)}
+        onClick={() => filterFilmsByParams(title)}
       >
         {title}
       </h3>
