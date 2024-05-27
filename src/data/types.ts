@@ -37,8 +37,10 @@ export interface IFilm {
 }
 
 export interface IFilms extends Array<IFilm> {}
+// ------------------------  For Zustand  ------------------------------------------------
 
-// For Zustand
+// Films Store
+
 export interface IFilmsStore {
   films: IFilms | [];
   copyFilms: IFilms | [];
@@ -54,4 +56,11 @@ export interface IFilmsStore {
   // setFilterByCategory: (category: string) => void;
   getDailyFilm: () => IFilm;
   filterFilmsByParams: (value: string) => any;
+}
+
+// Active Category Film
+
+export interface ICategoryStore {
+  activeCategory: string;
+  setActiveCategory: (value: string) => void;
 }

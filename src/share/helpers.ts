@@ -1,7 +1,3 @@
-import { useFilms } from "../storage/storage";
-import { ENUMSortBtn } from "../widget/MainBody";
-
-
 // export const sortByParams = (variant: ENUMSortBtn) => {
 //   films
 //     ? films.sort((a, b) => {
@@ -39,3 +35,5 @@ export const uniqueKey = () => {
   const uniqueId = timestamp + randomStr;
   return uniqueId;
 };
+
+export const randomValue = (value: number) => Math.floor(Math.random() * value);

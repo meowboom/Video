@@ -9,7 +9,6 @@ const Wrapper = ({ children }: Props) => {
   const { data, isLoading } = useFetchFilms();
   const { films, setFilms } = useFilms();
   useEffect(() => data && setFilms(data), [data]);
-
   return (
     <>
       {isLoading && (

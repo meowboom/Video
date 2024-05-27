@@ -1,3 +1,6 @@
+import { create } from "zustand";
+import { ICategoryStore } from "../../data/types";
+
 export const categories = [
   "Comedy",
   "Science",
@@ -5,8 +8,11 @@ export const categories = [
   "Fantasy",
   "Action",
   "Romance",
-  "Western",
+  "Animation",
   "Adventure",
-  "Historical",
-  "Documentary",
 ];
+
+export const useCategory = create<ICategoryStore>((set) => ({
+  activeCategory: "films",
+  setActiveCategory: (value) => set({ activeCategory: value }),
+}));

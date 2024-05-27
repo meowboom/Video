@@ -1,11 +1,12 @@
 import { create } from "zustand";
-import { IFilm, IFilmsStore } from "../data/types";
+import { IFilmsStore } from "../data/types";
 
 // Zustand Film Store
 
 export const useFilms = create<IFilmsStore>((set, get) => ({
   films: [],
   copyFilms: [],
+
   setFilms: (films) => set({ films }),
   setCopyFilms: (copyFilms) => set({ copyFilms }),
 
@@ -13,15 +14,14 @@ export const useFilms = create<IFilmsStore>((set, get) => ({
   getDailyFilm: () =>
     get().films.toSorted((a, b) => Number(b.views) - Number(a.views))[0], //all worked but why mistake?
   filterFilmsByParams: (value: string) => {
-    const filteredFilms = get().films.filter((film) => {
-      // console.log(film.category === value.toLowerCase());
+    const filteredFilms = get().films.filter(
+      (film) => film?.category === value.toLowerCase().trim(),
+    );
+    console.log("now");
 
-      return film?.category.toLowerCase() === value.toLowerCase();
-    });
-    get().setCopyFilms(filteredFilms);
+    // return get().setCopyFilms(filteredFilms);
+    return get().setCopyFilms(filteredFilms);
   },
 
   // setSortByParams
 }));
-
-

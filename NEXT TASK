@@ -1,7 +1,6 @@
 Create store (big deal) and fix all 20%
 Create My Profile 50% ok
 Create Price page 70% ok
-Add actual film from API fix json (new img)
 
 Create Auth
 
@@ -12,7 +11,8 @@ Create filter for "Random"
 Make the input "Search" + searchBtn should work when press key "Enter"
 Destructurize main moved router to separate index
 
-Fixed PriceCard position a small screen
+Fix button Random Film in left Bar and genre "Action"
+Fix PriceCard position a small screen
 Add to PriceCard paid switcher
 Finalize video player in Film Page
 In FilmPage add Arrow Back and mb feedback?
@@ -22,5 +22,6 @@ FilmCards do hover titel
 
 Adaptation (It last)
 
+OK Add actual film from API fix json (new img)
 OK Add Link to Logo
 OK Link to FilmPage for Daily top
