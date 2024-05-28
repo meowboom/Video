@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useFilms } from "../../../storage/storage";
+import { useCategory } from "../../../entities/CategoryCard";
 
 const SecondHeaderSection = () => {
   const [inputValue, setInputValue] = useState<string>("");
-  const { films, setCopyFilms } = useFilms();
+  const { setCopyFilms, films } = useFilms();
+  const { activeCategory } = useCategory();
 
   useEffect(() => {
-    const filteredFilms = films.filter((film) =>
-      film.title.toLowerCase().trim().includes(inputValue.toLowerCase().trim()),
-    );
+    const filteredFilms = films
+      .filter((film) => film.category === activeCategory)
+      .filter((film) =>
+        film.title
+          .toLowerCase()
+          .trim()
+          .includes(inputValue.toLowerCase().trim()),
+      );
+
     if (filteredFilms.length === 0) {
       setCopyFilms([]);
     } else {
       setCopyFilms(filteredFilms);
-    }
-    if (inputValue === "") {
-      setCopyFilms(films);
     }
   }, [inputValue]);
 

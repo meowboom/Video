@@ -7,15 +7,20 @@ import { randomValue } from "../../share/helpers";
 const CategoryCard = () => {
   const { filterFilmsByParams, films, setCopyFilms } = useFilms();
   const { activeCategory, setActiveCategory } = useCategory();
+  const activeCategoryArr = films.filter(
+    (film) => film.category === activeCategory,
+  );
 
   const handelRandomFilm = () => {
-    const activeArr = films.filter((film) => film.category === activeCategory);
-    const random = randomValue(activeArr.length);
-    const result = activeArr.filter((_, i) => i === random);
-
+    const random = randomValue(activeCategoryArr.length);
+    const result = activeCategoryArr.filter((_, i) => i === random);
     setCopyFilms(result);
   };
 
+  const handelGenreFilms = (value: string) => {
+    const result = activeCategoryArr.filter((film) => film?.genre === value);
+    setCopyFilms(result);
+  };
   return (
     <section className="item-center mb-5 flex flex-col items-center justify-center rounded-md bg-[#D9D9D9]/5 px-8 py-2 shadow-all shadow-white/25">
       <div className="my-3 flex w-full items-center text-2xl">
@@ -43,7 +48,7 @@ const CategoryCard = () => {
         {categories.map((value, i) => (
           <nav
             key={i}
-            onClick={() => filterFilmsByParams(value)}
+            onClick={() => handelGenreFilms(value)}
             className="text-md rounded-sm px-3 py-[1px] decoration-primary-main underline-offset-4 duration-300 hover:bg-white/10 hover:underline"
           >
             <button>{value}</button>

@@ -61,6 +61,6 @@ export interface IFilmsStore {
 // Active Category Film
 
 export interface ICategoryStore {
-  activeCategory: string;
+  activeCategory: string | null;
   setActiveCategory: (value: string) => void;
 }

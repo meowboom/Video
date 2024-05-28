@@ -60,11 +60,6 @@ const VideoCard = ({
       <h4 className="mb-1">
         {title.length > 20 ? title.slice(0, 20) + "..." : title}
       </h4>
-      {/* Temporarily */}
-      <h5 className="text-sm">
-        {category}:{genre}
-      </h5>
-      {/* Temporarily */}
 
       <span className="mb-[6px] w-56">
         <HrLine />

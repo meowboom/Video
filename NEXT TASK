@@ -5,7 +5,7 @@ Make the input "Search" + searchBtn should work when press key "Enter"
 Create My Profile 50% ok
 Create Price page 70% ok
 
-Fix genre "Action" filter
+Fix "Search" I think problem that CategoryCard return "Not find" bcs lenght == 9
 Fix PriceCard position a small screen
 Create Auth (Firebase?)
 Add to PriceCard paid switcher
@@ -25,3 +25,4 @@ OK FilmCards do hover title
 OK Create filter for "Random"
 OK Fix button Random Film in left Bar
 OK Destructure "main". Moved router to separate component
+OK Fix genre "Action" filter
