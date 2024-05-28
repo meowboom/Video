@@ -2,15 +2,18 @@ import React from "react";
 import { categories, useCategory } from ".";
 import HrLine from "../../share/HrLine/HrLine";
 import { useFilms } from "../../storage/storage";
+import { randomValue } from "../../share/helpers";
 
 const CategoryCard = () => {
   const { filterFilmsByParams, films, setCopyFilms } = useFilms();
   const { activeCategory, setActiveCategory } = useCategory();
+
   const handelRandomFilm = () => {
-    const random = films[Math.floor(Math.random() * films.length)];
-    setCopyFilms([random]);
-    console.log([random]);
-    // Why not working???
+    const activeArr = films.filter((film) => film.category === activeCategory);
+    const random = randomValue(activeArr.length);
+    const result = activeArr.filter((_, i) => i === random);
+
+    setCopyFilms(result);
   };
 
   return (

@@ -47,7 +47,7 @@ const FilmCards = () => {
             Film not found
           </div>
         )}
-        {copyFilms.length > 1 && renderFilmsCard(copyFilms)}
+        {copyFilms.length > 0 && renderFilmsCard(copyFilms)}
       </div>
     </div>
   );

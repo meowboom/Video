@@ -1,27 +1,27 @@
-Create store (big deal) and fix all 20%
+Create store (big deal) and fix all 50%
+Create sort for category
+
+Make the input "Search" + searchBtn should work when press key "Enter"
 Create My Profile 50% ok
 Create Price page 70% ok
 
-Create Auth
-
-Find/Create json
-
-Create sort for category
-Create filter for "Random"
-Make the input "Search" + searchBtn should work when press key "Enter"
-Destructurize main moved router to separate index
-
-Fix button Random Film in left Bar and genre "Action"
+Fix genre "Action" filter
 Fix PriceCard position a small screen
+Create Auth (Firebase?)
 Add to PriceCard paid switcher
 Finalize video player in Film Page
 In FilmPage add Arrow Back and mb feedback?
-Why if back to main all films sorted?
 Fix "favorite" (if i want add to favorite me redirecting) + css
-FilmCards do hover titel
 
 Adaptation (It last)
 
 OK Add actual film from API fix json (new img)
 OK Add Link to Logo
 OK Link to FilmPage for Daily top
+OK Find/Create json
+
+OK Why if I back to main page all films sorted?
+OK FilmCards do hover title
+OK Create filter for "Random"
+OK Fix button Random Film in left Bar
+OK Destructure "main". Moved router to separate component

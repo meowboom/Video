@@ -36,4 +36,5 @@ export const uniqueKey = () => {
   return uniqueId;
 };
 
-export const randomValue = (value: number) => Math.floor(Math.random() * value);
+export const randomValue = (value: number) =>
+  Math.floor(Math.random() * (value - 1) + 1);

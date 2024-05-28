@@ -17,7 +17,6 @@ export const useFilms = create<IFilmsStore>((set, get) => ({
     const filteredFilms = get().films.filter(
       (film) => film?.category === value.toLowerCase().trim(),
     );
-    console.log("now");
 
     // return get().setCopyFilms(filteredFilms);
     return get().setCopyFilms(filteredFilms);
