@@ -1,4 +1,5 @@
-// Backend
+// ------------------------  For Users ------------------------------------------------
+
 export interface IUser {
   id: number;
   name: string;
@@ -11,6 +12,8 @@ export interface IUser {
 }
 
 export interface IUsers extends Array<IUser> {}
+
+// ------------------------  For Films ------------------------------------------------
 
 export interface IFilm {
   id: string;
@@ -37,6 +40,7 @@ export interface IFilm {
 }
 
 export interface IFilms extends Array<IFilm> {}
+
 // ------------------------  For Zustand  ------------------------------------------------
 
 // Films Store
@@ -45,15 +49,11 @@ export interface IFilmsStore {
   films: IFilms | [];
   copyFilms: IFilms | [];
 
-  // copyFilms: IFilms;
   setFilms: (films: IFilms) => void | unknown | undefined | null | any;
   setCopyFilms: (
     changedFilms: IFilms,
   ) => void | unknown | undefined | null | any;
-  // setCopyFilms: (films: IFilms) => void | unknown | undefined | null | any;
-
   getFilm: (id: string) => any;
-  // setFilterByCategory: (category: string) => void;
   getDailyFilm: () => IFilm;
   filterFilmsByParams: (value: string) => any;
 }
@@ -63,4 +63,19 @@ export interface IFilmsStore {
 export interface ICategoryStore {
   activeCategory: string | null;
   setActiveCategory: (value: string) => void;
+}
+
+// ------------------------  Price Cards  ------------------------------------------------
+export enum EPriceCard {
+  base = "Freelancer",
+  pro = "Startup",
+  individual = "Enterprise",
+}
+
+export interface IPriceCard {
+  tariff: EPriceCard;
+  description: string;
+  price: number;
+  advantage?: string[];
+  isActive: boolean;
 }

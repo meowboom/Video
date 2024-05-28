@@ -32,14 +32,14 @@ const FilmCards = () => {
   return (
     <div className="pb-10">
       <div className="invisible mb-4 mt-1 flex w-full items-center justify-center lg:visible">
-        {/* {BTN_FOR_SORT.map(({ title, img, onClick }, id) => (
+        {BTN_FOR_SORT.map(({ title, img }, id) => (
           <SortBtn
             title={title}
             img={img}
             key={id}
-            onClick={() => onClick(title)}
+            onClick={() => console.log(title)}
           />
-        ))} */}
+        ))}
       </div>
       <div className="flex flex-wrap justify-center gap-10" key={uniqueKey()}>
         {copyFilms.length === 0 && (

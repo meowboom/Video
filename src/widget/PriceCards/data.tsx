@@ -1,8 +1,5 @@
-export enum EPriceCard {
-  base = "Freelancer",
-  pro = "Startup",
-  individual = "Enterprise",
-}
+import { EPriceCard } from "../../data/types";
+
 export const PRICE_CARDS = [
   {
     id: "1",

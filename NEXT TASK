@@ -1,14 +1,13 @@
-Create store (big deal) and fix all 50%
-Create sort for category
+Next task > Create sort for category 
+
+Create store (big deal) and fix all 50% (films ok, next users)
 
 Make the input "Search" + searchBtn should work when press key "Enter"
-Create My Profile 50% ok
-Create Price page 70% ok
+Create My Profile 80% ok (storage data)
+Create Price page 80% ok (storage data)
 
-Fix "Search" I think problem that CategoryCard return "Not find" bcs lenght == 9
 Fix PriceCard position a small screen
-Create Auth (Firebase?)
-Add to PriceCard paid switcher
+Create Autt h (Firebase?)
 Finalize video player in Film Page
 In FilmPage add Arrow Back and mb feedback?
 Fix "favorite" (if i want add to favorite me redirecting) + css
@@ -20,6 +19,8 @@ OK Add Link to Logo
 OK Link to FilmPage for Daily top
 OK Find/Create json
 
+OK Add to PriceCard paid switcher
+OK Fix "Search" I think problem that CategoryCard return "Not find" bcs lenght == 9
 OK Why if I back to main page all films sorted?
 OK FilmCards do hover title
 OK Create filter for "Random"

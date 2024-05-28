@@ -1,8 +1,13 @@
 import React, { useRef, useState, useEffect } from "react";
 
-type Props = { title: string; value?: string };
+type Props = {
+  title: string;
+  value?: string;
+  placeholder: string;
+  type: string;
+};
 
-const BlockForForm = ({ title, value = "" }: Props) => {
+const BlockForForm = ({ title, value, placeholder, type }: Props) => {
   const [isEdit, setIsEdit] = useState(false);
   const [inputValue, setInputValue] = useState(value);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -21,15 +26,14 @@ const BlockForForm = ({ title, value = "" }: Props) => {
     <div className="flex items-center justify-end gap-2">
       <label htmlFor="">{title}</label>
       <input
-        type="text"
+        type={type}
         ref={inputRef}
         className={`cursor-pointer rounded-md bg-white/5 pl-2 text-primary-hover outline-none duration-500 hover:bg-primary-hover/20 focus:bg-white/10 ${
           isEdit ? "cursor-text" : "cursor-pointer"
         }`}
-        placeholder={title}
+        placeholder={placeholder}
         value={inputValue}
         onChange={handleInputChange}
-        readOnly={!isEdit}
         onClick={() => !isEdit && setIsEdit(true)}
       />
       <button
