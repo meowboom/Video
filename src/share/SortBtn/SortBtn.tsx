@@ -1,12 +1,7 @@
 import React from "react";
+import { ISortBTN } from "../../data/types";
 
-type Props = {
-  title: string;
-  img?: any;
-  onClick?: () => void | undefined;
-};
-
-const SortBtn = ({ title, img, onClick }: Props) => {
+const SortBtn = ({ title, img, onClick }: ISortBTN) => {
   return (
     <div
       onClick={onClick}

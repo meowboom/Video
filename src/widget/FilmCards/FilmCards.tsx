@@ -8,7 +8,8 @@ import { useFilms } from "../../storage/storage";
 import { uniqueKey } from "../../share/helpers";
 
 const FilmCards = () => {
-  const { copyFilms, filterFilmsByParams } = useFilms();
+  const { copyFilms, filterFilmsByParams, sortByParams } = useFilms();
+  // console.log(copyFilms);
 
   useEffect(() => filterFilmsByParams("films"), []);
 
@@ -37,7 +38,7 @@ const FilmCards = () => {
             title={title}
             img={img}
             key={id}
-            onClick={() => console.log(title)}
+            onClick={() => sortByParams(title)}
           />
         ))}
       </div>

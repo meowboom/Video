@@ -56,7 +56,27 @@ export interface IFilmsStore {
   getFilm: (id: string) => any;
   getDailyFilm: () => IFilm;
   filterFilmsByParams: (value: string) => any;
+  sortByParams: (param: ENUMSortBTN) => any;
 }
+
+export enum ENUMSortBTN {
+  lettersUp = "A-Z",
+  lettersDown = "Z-A",
+  ratingUp = "Ratting up",
+  ratingDown = "Ratting down",
+  yearUp = "Year up",
+  yearDown = "Year down",
+  favorite = "My favorite",
+}
+
+export interface ISortBTN {
+  title: ENUMSortBTN;
+  img?: any;
+  onClick?: () => void | undefined;
+
+}
+
+export interface ISortBTNs extends Array<ISortBTN> {}
 
 // Active Category Film
 
