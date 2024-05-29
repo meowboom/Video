@@ -50,7 +50,10 @@ export const useFilms = create<IFilmsStore>((set, get) => ({
         });
       }
     };
+    const validationArr = validation();
 
-    return get().setCopyFilms(validation());
+    if (validationArr !== validationArr) {
+      return get().setCopyFilms(validation());
+    }
   },
 }));

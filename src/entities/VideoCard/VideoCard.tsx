@@ -1,33 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import HrLine from "../../share/HrLine/HrLine";
 import "./index.css";
 import { HeartIcon } from "@heroicons/react/20/solid";
+import { IVideoCard } from "../../data/types";
 
-interface Props {
-  title: string;
-  thumbnailUrl: string;
-  description: string;
-  isFavorite: string;
-  rate: string;
-  year: string;
-  id: string;
-  genre: string;
-  category: string;
-}
 const VideoCard = ({
-  id,
   description,
   isFavorite,
   thumbnailUrl,
   rate,
   title,
   year,
-  genre,
-  category,
-}: Props) => {
+}: IVideoCard) => {
+  const [fav, setFav] = useState(isFavorite === "true" && true);
+
   return (
     <div
-      onClick={() => console.log(id)}
       id={`${year}`}
       className="flex h-[380px] w-64 cursor-pointer flex-col items-center justify-center overflow-hidden rounded-lg bg-[#D9D9D9]/5 p-[2px] text-center shadow-all shadow-[#D9D9D9]/30 duration-500  hover:shadow-primary-hover"
     >
@@ -60,7 +48,7 @@ const VideoCard = ({
       <h4 className="mb-1">
         {title.length > 20 ? title.slice(0, 20) + "..." : title}
       </h4>
-
+      {/* HR */}
       <span className="mb-[6px] w-56">
         <HrLine />
       </span>
@@ -75,11 +63,17 @@ const VideoCard = ({
             </span>
           </h5>
         </div>
-        <div className=" mr-4  flex w-1/3  items-center justify-end before:absolute before:translate-x-[74px] before:rounded-lg before:bg-white/20 before:px-3 before:py-[2px] before:text-sm before:text-gray-300 before:opacity-0 before:duration-700  before:ease-in-out before:content-['favorite']  hover:before:opacity-100">
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setFav(!fav);
+          }}
+          className=" mr-4  flex w-1/3  items-center justify-end before:absolute before:translate-x-[74px] before:rounded-lg before:bg-white/20 before:px-3 before:py-[2px] before:text-sm before:text-gray-300 before:opacity-0 before:duration-700  before:ease-in-out before:content-['favorite']  hover:before:opacity-100"
+        >
           <HeartIcon
-            className={`size-9  duration-300 hover:text-rose-300 ${isFavorite === "true" ? "text-rose-700" : "text-white/50"} `}
+            className={`size-9  duration-300 hover:text-rose-300 ${fav ? "text-rose-700" : "text-white/50"} `}
           />
-        </div>
+        </button>
       </div>
     </div>
   );

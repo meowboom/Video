@@ -6,26 +6,31 @@ import TariffPlans from "../pages/TariffPlan/TariffPlans";
 import FilmCards from "../widget/FilmCards/FilmCards";
 import FilmPage from "../widget/FilmPage/FilmPage";
 import MainBody from "../widget/MainBody/MainBody";
+import Auth from "../pages/Auth/Auth";
 
 export const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <HomeScreen children={<MainBody children={<FilmCards />} />} />,
-    },
-    {
-      path: "/my-profile",
-      element: <MyProfile />,
-    },
-    {
-      path: "/tariff-plans",
-      element: <TariffPlans />,
-    },
-    {
-      path: "/:id",
-      element: <HomeScreen children={<MainBody children={<FilmPage />} />} />,
-    },
-    {
-      path: "/:id",
-      element: <HomeScreen children={<MainBody children={<DailyTop />} />} />,
-    },
-  ]);
+  {
+    path: "/",
+    element: <HomeScreen children={<MainBody children={<FilmCards />} />} />,
+  },
+  {
+    path: "/my-profile",
+    element: <MyProfile />,
+  },
+  {
+    path: "/tariff-plans",
+    element: <TariffPlans />,
+  },
+  {
+    path: "/:id",
+    element: <HomeScreen children={<MainBody children={<FilmPage />} />} />,
+  },
+  {
+    path: "/:id",
+    element: <HomeScreen children={<MainBody children={<DailyTop />} />} />,
+  },
+  {
+    path: "/auth",
+    element: <Auth />,
+  },
+]);

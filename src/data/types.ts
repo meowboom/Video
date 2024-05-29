@@ -72,8 +72,8 @@ export enum ENUMSortBTN {
 export interface ISortBTN {
   title: ENUMSortBTN;
   img?: any;
+  isActive?: string | null;
   onClick?: () => void | undefined;
-
 }
 
 export interface ISortBTNs extends Array<ISortBTN> {}
@@ -85,7 +85,20 @@ export interface ICategoryStore {
   setActiveCategory: (value: string) => void;
 }
 
+// ------------------------  Video Card  ------------------------------------------------
+
+export interface IVideoCard {
+  title: string;
+  thumbnailUrl: string;
+  description: string;
+  isFavorite: string;
+  rate: string;
+  year: string;
+  id: string;
+}
+
 // ------------------------  Price Cards  ------------------------------------------------
+
 export enum EPriceCard {
   base = "Freelancer",
   pro = "Startup",

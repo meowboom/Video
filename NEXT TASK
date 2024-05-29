@@ -1,16 +1,15 @@
-Next task > Create sort for category 90% OK (BUT FAVORITE WORK NOT CORRECTLY)
 
+Fix "favorite" (if i want add to favorite me redirecting) + css
 Create store (big deal) and fix all 50% (films ok, next users)
 
-Make the input "Search" + searchBtn should work when press key "Enter"
 Create My Profile 80% ok (storage data)
 Create Price page 80% ok (storage data)
+Next task > Create sort for category 90% OK (BUT FAVORITE WORK NOT CORRECTLY (i can fixed add to method another 'if' and sorted films.filter(isActiveCategory).sort>...))
 
 Fix PriceCard position a small screen
 Create Autt h (Firebase?)
 Finalize video player in Film Page
 In FilmPage add Arrow Back and mb feedback?
-Fix "favorite" (if i want add to favorite me redirecting) + css
 
 Adaptation (It last)
 
@@ -27,3 +26,5 @@ OK Create filter for "Random"
 OK Fix button Random Film in left Bar
 OK Destructure "main". Moved router to separate component
 OK Fix genre "Action" filter
+
+NO SENSE Make the input "Search" + searchBtn should work when press key "Enter"
