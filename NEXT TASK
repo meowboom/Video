@@ -1,6 +1,6 @@
 
-Fix "favorite" (if i want add to favorite me redirecting) + css
-Create store (big deal) and fix all 50% (films ok, next users)
+Fix "favorite" (1:if i want add to favorite me redirecting) OK + 2: css 3:fav must update state 
+Create store (big deal) and fix all 50% (1: Films OK, 2: users)
 
 Create My Profile 80% ok (storage data)
 Create Price page 80% ok (storage data)

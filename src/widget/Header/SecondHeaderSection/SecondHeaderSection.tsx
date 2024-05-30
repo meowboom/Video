@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useFilms } from "../../../storage/storage";
-import { useCategory } from "../../../entities/CategoryCard";
+import { useConstant } from "../../../storage/constant.storage";
 
 const SecondHeaderSection = () => {
   const [inputValue, setInputValue] = useState<string>("");
   const { setCopyFilms, films } = useFilms();
-  const { activeCategory } = useCategory();
+  const { activeCategory, setGenre, setSortActiveMethod } = useConstant();
 
   useEffect(() => {
     const filteredFilms = films
@@ -16,7 +16,8 @@ const SecondHeaderSection = () => {
           .trim()
           .includes(inputValue.toLowerCase().trim()),
       );
-
+    setGenre(null);
+    setSortActiveMethod(null);
     if (filteredFilms.length === 0) {
       setCopyFilms([]);
     } else {

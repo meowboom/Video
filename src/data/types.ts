@@ -78,12 +78,6 @@ export interface ISortBTN {
 
 export interface ISortBTNs extends Array<ISortBTN> {}
 
-// Active Category Film
-
-export interface ICategoryStore {
-  activeCategory: string | null;
-  setActiveCategory: (value: string) => void;
-}
 
 // ------------------------  Video Card  ------------------------------------------------
 

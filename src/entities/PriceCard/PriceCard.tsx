@@ -26,7 +26,6 @@ const PriceCard = ({
           isFill={false}
           text="Buy now"
           key={"buy_now"}
-          onClick={() => console.log("Buy:", isActive ? price * 12 : price)}
         />
         <ul className="lg:text-md mt-2 flex flex-col gap-1 text-sm">
           {advantage && advantage.map((adv, id) => <li key={id}>{adv}</li>)}

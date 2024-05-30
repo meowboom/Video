@@ -4,10 +4,10 @@ import PriceCards from "../../widget/PriceCards/PriceCards";
 import HrLine from "../../share/HrLine/HrLine";
 import { Link } from "react-router-dom";
 import MyButton from "../../share/MyButton/MyButton";
-import { useState } from "react";
+import { useConstant } from "../../storage/constant.storage";
 
 const TariffPlans = () => {
-  const [isActive, setIsActive] = useState(true);
+  const { priceVariant, setPriceVariant } = useConstant();
 
   return (
     <div className="flex h-screen w-full flex-col items-center">
@@ -41,25 +41,27 @@ const TariffPlans = () => {
       <div className="w-42 relative flex cursor-pointer items-center justify-between overflow-hidden rounded-full bg-black/30">
         <div
           className={`absolute left-0 top-0 h-full w-1/2 bg-primary-main transition-transform duration-500 ease-in-out ${
-            isActive ? "translate-x-0 transform" : "translate-x-full transform"
+            priceVariant
+              ? "translate-x-0 transform"
+              : "translate-x-full transform"
           }`}
         ></div>
         <button
-          onClick={() => setIsActive(!isActive)}
+          onClick={() => setPriceVariant(!priceVariant)}
           className={`z-10 w-full rounded-l-full px-5 py-2 text-white transition-colors duration-500 hover:text-primary-hover 
           `}
         >
           Year
         </button>
         <button
-          onClick={() => setIsActive(!isActive)}
+          onClick={() => setPriceVariant(!priceVariant)}
           className={`z-10 w-full rounded-r-full px-3 py-2 text-white transition-colors duration-500 hover:text-primary-hover 
           `}
         >
           Month
         </button>
       </div>
-      <PriceCards isActive={isActive} />
+      <PriceCards />
     </div>
   );
 };
