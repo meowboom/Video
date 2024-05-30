@@ -6,7 +6,6 @@ import RightBar from "../../widget/RightBar/RightBar";
 type Props = { children?: ReactNode };
 
 const HomeScreen = ({ children }: Props) => {
-
   return (
     <div className="h-full w-full ">
       <Header />
