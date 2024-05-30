@@ -4,7 +4,7 @@ import SortBtn from "../../share/SortBtn/SortBtn";
 import { BTN_FOR_SORT } from "../MainBody";
 import { Link } from "react-router-dom";
 import { IFilm } from "../../data/types";
-import { useFilms } from "../../storage/storage";
+import { useFilms } from "../../storage/films.storage";
 import { uniqueKey } from "../../share/helpers";
 import { useConstant } from "../../storage/constant.storage";
 

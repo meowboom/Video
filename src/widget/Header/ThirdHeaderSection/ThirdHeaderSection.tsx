@@ -1,11 +1,10 @@
-import React, { FC } from "react";
+import React from "react";
 import UserAccount from "../../../entities/UserAccount/UserAccount";
 import ButtonSection from "../../../entities/ButtonSection/ButtonSection";
+import { useConstant } from "../../../storage/constant.storage";
 
-type Props = {};
-
-const ThirdHeaderSection: FC<Props> = () => {
-  const isLogin = true;
+const ThirdHeaderSection = () => {
+  const { isLogin, setIsLogin } = useConstant();
   return (
     <div className="flex w-full items-center justify-center">
       {isLogin ? <UserAccount /> : <ButtonSection />}

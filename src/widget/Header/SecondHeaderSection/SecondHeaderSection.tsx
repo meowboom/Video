@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useFilms } from "../../../storage/storage";
+import { useFilms } from "../../../storage/films.storage";
 import { useConstant } from "../../../storage/constant.storage";
 
 const SecondHeaderSection = () => {

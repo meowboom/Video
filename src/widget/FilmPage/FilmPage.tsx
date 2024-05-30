@@ -1,7 +1,7 @@
 import React from "react";
 import PosterForFilmPage from "../../entities/PosterForFilmPage/PosterForFilmPage";
 import AboutForFilm from "../../entities/AboutForFilm/AboutForFilm";
-import { useFilms } from "../../storage/storage";
+import { useFilms } from "../../storage/films.storage";
 import { useLocation } from "react-router-dom";
 import Loader from "../../share/Loader/Loader";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { categories } from ".";
 import HrLine from "../../share/HrLine/HrLine";
-import { useFilms } from "../../storage/storage";
+import { useFilms } from "../../storage/films.storage";
 import { randomValue } from "../../share/helpers";
 import { useConstant } from "../../storage/constant.storage";
 const CategoryCard = () => {

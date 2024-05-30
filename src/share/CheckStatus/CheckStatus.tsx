@@ -1,10 +1,9 @@
+import React from "react";
+
 import { XMarkIcon } from "@heroicons/react/16/solid";
 import { CheckBadgeIcon } from "@heroicons/react/20/solid";
-import React, { FC } from "react";
 
-type Props = {};
-
-const CheckStatus: FC<Props> = () => {
+const CheckStatus = () => {
   const isPaid = true;
   return (
     <div>
