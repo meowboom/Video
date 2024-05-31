@@ -7,6 +7,7 @@ export interface IUseConstant {
   genre: string | null;
   activeIMG: number;
   isLogin: boolean;
+  auth: string | null;
 
   setSortActiveMethod: (value: null | string) => void;
   setPriceVariant: (value: boolean) => void;
@@ -14,6 +15,7 @@ export interface IUseConstant {
   setGenre: (value: string | null) => void;
   setActiveIMG: (value: number) => void;
   setIsLogin: (value: boolean) => void;
+  setAuth: (value: string | null) => void;
 }
 
 export const useConstant = create<IUseConstant>((set) => ({
@@ -23,6 +25,7 @@ export const useConstant = create<IUseConstant>((set) => ({
   genre: null,
   activeIMG: 0,
   isLogin: false,
+  auth: null,
 
   setSortActiveMethod: (sortActiveMethod) => set({ sortActiveMethod }),
   setPriceVariant: (priceVariant) => set({ priceVariant }),
@@ -30,4 +33,5 @@ export const useConstant = create<IUseConstant>((set) => ({
   setGenre: (genre) => set({ genre }),
   setActiveIMG: (activeIMG) => set({ activeIMG }),
   setIsLogin: (isLogin) => set({ isLogin }),
+  setAuth: (auth) => set({ auth }),
 }));

@@ -7,11 +7,16 @@ import FilmCards from "../widget/FilmCards/FilmCards";
 import FilmPage from "../widget/FilmPage/FilmPage";
 import MainBody from "../widget/MainBody/MainBody";
 import Auth from "../pages/Auth/Auth";
+import App from "../app";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomeScreen children={<MainBody children={<FilmCards />} />} />,
+    element: (
+      <App>
+        <HomeScreen children={<MainBody children={<FilmCards />} />} />
+      </App>
+    ),
   },
   {
     path: "/my-profile",
@@ -23,14 +28,18 @@ export const router = createBrowserRouter([
   },
   {
     path: "/:id",
-    element: <HomeScreen children={<MainBody children={<FilmPage />} />} />,
+    element: (
+      <App>
+        <HomeScreen children={<MainBody children={<FilmPage />} />} />
+      </App>
+    ),
   },
   {
     path: "/:id",
-    element: <HomeScreen children={<MainBody children={<DailyTop />} />} />,
-  },
-  {
-    path: "/auth",
-    element: <Auth />,
+    element: (
+      <App>
+        <HomeScreen children={<MainBody children={<DailyTop />} />} />
+      </App>
+    ),
   },
 ]);

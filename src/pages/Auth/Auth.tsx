@@ -1,30 +1,25 @@
+import { XMarkIcon } from "@heroicons/react/20/solid";
 import React from "react";
-import src from "../../assets/logo.png";
-import { Link } from "react-router-dom";
-import MyButton from "../../share/MyButton/MyButton";
+import { useConstant } from "../../storage/constant.storage";
 
-const Auth = () => {
-  const handleButtonClick = (event: any) => {
-    event.preventDefault();
-    console.log("Button clicked!");
-  };
+interface IAuth {
+  children: React.ReactNode;
+}
+
+const Auth = ({ children }: IAuth) => {
+  const { auth, setAuth } = useConstant();
   return (
-    <Link to={"/"}>
-      <div className="item-center mt-44 flex size-[500px] flex-col justify-center gap-10 bg-primary-bg">
-        <div>Auth</div>
-        <div>
-          <img src={src} alt="src" />
-        </div>
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque,
-          voluptates laborum alias exercitationem et distinctio. Non magnam
-          repellat, dicta voluptates magni esse. Amet at omnis facere! Nobis
-          nisi ab reiciendis?
-        </div>
-
-        <MyButton isFill={true} text="PUSH ME" onClick={handleButtonClick} />
+    <div
+      className={`${auth !== null && "-translate-x-0"} fixed right-0 z-50 mt-24 flex h-2/4 w-3/12 translate-x-full transform items-center justify-end rounded-l-full bg-white/20 py-5 pl-5 transition-transform duration-500  ease-in-out`}
+    >
+      <div className="flex h-full w-full items-center justify-center rounded-l-full bg-primary-bg/90 shadow-all shadow-black">
+        <XMarkIcon
+          className="absolute right-6 top-12 size-10 cursor-pointer duration-300 hover:text-primary-hover"
+          onClick={() => setAuth(null)}
+        />
+        {children}
       </div>
-    </Link>
+    </div>
   );
 };
 

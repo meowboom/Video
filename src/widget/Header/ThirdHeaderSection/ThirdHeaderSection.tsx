@@ -4,7 +4,7 @@ import ButtonSection from "../../../entities/ButtonSection/ButtonSection";
 import { useConstant } from "../../../storage/constant.storage";
 
 const ThirdHeaderSection = () => {
-  const { isLogin, setIsLogin } = useConstant();
+  const { isLogin } = useConstant();
   return (
     <div className="flex w-full items-center justify-center">
       {isLogin ? <UserAccount /> : <ButtonSection />}
