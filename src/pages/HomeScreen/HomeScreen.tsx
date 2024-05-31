@@ -18,7 +18,17 @@ const HomeScreen = ({ children }: Props) => {
           <LeftBar />
           {children}
           <RightBar />
-          <Auth children={auth === "Register" ? <Register /> : <Login />} />
+          <Auth
+            children={
+              auth === "Register" ? (
+                <Register title="Register" />
+              ) : auth === "Log In" ? (
+                <Login title="Login" />
+              ) : (
+                ""
+              )
+            }
+          />
         </div>
       </div>
     </div>
