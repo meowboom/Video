@@ -1,5 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import MyButton from "../../share/MyButton/MyButton";
+import { useUsers } from "../../storage/users.storage";
+import { IUser } from "../../data/types";
+import { useConstant } from "../../storage/constant.storage";
 
 export interface ILogin {
   title: string;
@@ -7,14 +10,43 @@ export interface ILogin {
 const Login = ({ title }: ILogin) => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
+  const [invalidMsg, setInvalidMsg] = useState(false);
   const loginRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
+  const { usersCopy, setUser } = useUsers();
+  const { setIsLogin, setAuth } = useConstant();
+
+  // Sincere@april.biz 12345
+
   const handelClick = () => {
     if (loginRef.current && passwordRef.current) {
-      setLogin(loginRef.current.value);
-      setPassword(passwordRef.current.value);
+      const updatedLogin = loginRef.current.value;
+      const updatedPassword = passwordRef.current.value;
+      setLogin(updatedLogin);
+      setPassword(updatedPassword);
+      usersCopy?.filter((user: IUser) => {
+        if (
+          user.email.toLocaleLowerCase().trim() ===
+          updatedLogin.toLowerCase().trim()
+        ) {
+          if (user.password === updatedPassword) {
+            setUser(user);
+            setIsLogin(true);
+            setInvalidMsg(false);
+            setAuth(null);
+          } else {
+            setInvalidMsg(true);
+          }
+        } else if (
+          user.email.toLocaleLowerCase().trim() !==
+          updatedLogin.toLowerCase().trim()
+        ) {
+          setInvalidMsg(true);
+        }
+      });
     }
   };
+
   return (
     <div className="flex h-[97%] w-full justify-end rounded-l-full">
       <div className="my-10 flex w-11/12 flex-col items-center justify-around rounded-l-full bg-primary-bg py-20 shadow-all shadow-white/20">
@@ -47,9 +79,10 @@ const Login = ({ title }: ILogin) => {
           </div>
         </div>
         {/* temporarily */}
-        <div className="flex flex-col">
-          <span>Login: {login}</span>
-          <span>Password: {password}</span>
+        <div
+          className={`${invalidMsg ? "visible" : "invisible"}  text-lg text-red-500`}
+        >
+          Invalid email or password
         </div>
         <div className="ml-20">
           <MyButton isFill={true} text="Sign In" onClick={handelClick} />

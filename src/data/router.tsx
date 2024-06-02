@@ -6,8 +6,8 @@ import TariffPlans from "../pages/TariffPlan/TariffPlans";
 import FilmCards from "../widget/FilmCards/FilmCards";
 import FilmPage from "../widget/FilmPage/FilmPage";
 import MainBody from "../widget/MainBody/MainBody";
-import Auth from "../pages/Auth/Auth";
 import App from "../app";
+import ProtectedRoute from "../pages/ProtectRoute/ProtectRoute";
 
 export const router = createBrowserRouter([
   {
@@ -20,7 +20,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/my-profile",
-    element: <MyProfile />,
+    element: (
+      <ProtectedRoute>
+        <MyProfile />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/tariff-plans",

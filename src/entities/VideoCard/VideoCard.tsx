@@ -12,7 +12,8 @@ const VideoCard = ({
   title,
   year,
 }: IVideoCard) => {
-  const [fav, setFav] = useState(isFavorite === "true" && true);
+  const [fav, setFav] = useState(isFavorite === "true" ? true : false);
+  console.log(fav);
 
   return (
     <div className="flex h-[400px] w-64 cursor-pointer flex-col items-center justify-center overflow-hidden rounded-lg bg-[#D9D9D9]/5 p-[2px] text-center shadow-all shadow-[#D9D9D9]/30 duration-500  hover:shadow-primary-hover">
@@ -72,7 +73,7 @@ const VideoCard = ({
               e.preventDefault();
               setFav(!fav);
             }}
-            className=" before:absolute before:translate-x-[74px] before:rounded-lg before:bg-white/20 before:px-3 before:py-[2px] before:text-sm before:text-gray-300 before:opacity-0 before:duration-700  before:ease-in-out before:content-['favorite']  hover:before:opacity-100"
+            className=" before:absolute before:translate-x-5 before:translate-y-1 before:rounded-lg before:bg-white/20 before:px-3 before:py-[2px] before:text-sm before:text-gray-300 before:opacity-0 before:duration-700  before:ease-in-out before:content-['favorite']  hover:before:opacity-100"
           >
             <HeartIcon
               className={`size-8 duration-300 hover:text-rose-300 ${fav ? "text-rose-700" : "text-white/50"} `}

@@ -4,9 +4,9 @@ import { IUser, IUsers } from "../data/types";
 // Zustand Users Store
 
 export interface IUsersStore {
-  users: [];
-  usersCopy: [];
-  user: {};
+  users: IUsers | null;
+  usersCopy: IUsers | null;
+  user: IUser;
   setUsers: (value: any) => void;
   setUsersCopy: (value: any) => void;
   setUser: (value: IUser) => void;

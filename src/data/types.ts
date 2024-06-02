@@ -78,7 +78,6 @@ export interface ISortBTN {
 
 export interface ISortBTNs extends Array<ISortBTN> {}
 
-
 // ------------------------  Video Card  ------------------------------------------------
 
 export interface IVideoCard {
@@ -105,4 +104,5 @@ export interface IPriceCard {
   price: number;
   advantage?: string[];
   isActive: boolean;
+  boughtTariff?: "" | "pro" | "individual" | "based";
 }

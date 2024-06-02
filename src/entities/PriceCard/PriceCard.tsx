@@ -22,11 +22,7 @@ const PriceCard = ({
         <span className="mb-3 text-primary-main md:text-3xl ">
           {isActive ? price * 12 : price} $
         </span>
-        <MyButton
-          isFill={false}
-          text="Buy now"
-          key={"buy_now"}
-        />
+        <MyButton isFill={false} text="Buy now" key={"buy_now"} />
         <ul className="lg:text-md mt-2 flex flex-col gap-1 text-sm">
           {advantage && advantage.map((adv, id) => <li key={id}>{adv}</li>)}
         </ul>

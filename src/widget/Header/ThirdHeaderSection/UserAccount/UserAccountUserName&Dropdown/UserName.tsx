@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import MyButton from "../../../../../share/MyButton/MyButton";
 import { Link } from "react-router-dom";
+import { useConstant } from "../../../../../storage/constant.storage";
+import { useUsers } from "../../../../../storage/users.storage";
 
-type Props = {};
-
-const UserName = (props: Props) => {
-  const userName = "Maksim";
+const UserName = () => {
+  const { isLogin, setIsLogin } = useConstant();
+  const { user, setUser } = useUsers();
   const [isVisible, setIsVisible] = useState(false);
+  const handleLogOut = () => {
+    setUser(null);
+    setIsLogin(false);
+  };
+
   return (
     <div
       onMouseEnter={() => setIsVisible(true)}
@@ -16,7 +22,7 @@ const UserName = (props: Props) => {
         <div className="cursor-pointer ">
           <span className="mr-1 text-lg">Account:</span>
           <span className="text-xl font-bold text-primary-main underline underline-offset-4">
-            {userName}
+            {isLogin && user?.name}
           </span>
         </div>
       </div>
@@ -43,7 +49,7 @@ const UserName = (props: Props) => {
                 My Profile
               </Link>
 
-              <MyButton isFill={false} text="Log Out" />
+              <MyButton isFill={false} text="Log Out" onClick={handleLogOut} />
             </div>
           </div>
         </div>

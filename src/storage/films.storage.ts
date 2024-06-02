@@ -11,8 +11,10 @@ export const useFilms = create<IFilmsStore>((set, get) => ({
   setCopyFilms: (copyFilms) => set({ copyFilms }),
 
   getFilm: (id: string) => get().films.find((film) => film.id === id),
+
   getDailyFilm: () =>
     get().films.toSorted((a, b) => Number(b.views) - Number(a.views))[0], //all worked but why mistake?
+
   filterFilmsByParams: (value: string) => {
     const filteredFilms = get().films.filter(
       (film) => film?.category === value.toLowerCase().trim(),
@@ -20,6 +22,7 @@ export const useFilms = create<IFilmsStore>((set, get) => ({
 
     return get().setCopyFilms(filteredFilms);
   },
+
   sortByParams: (param: ENUMSortBTN) => {
     const validation = () => {
       if (param === ENUMSortBTN.lettersUp) {

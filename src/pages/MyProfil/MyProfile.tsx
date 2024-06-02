@@ -1,15 +1,31 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import HrLine from "../../share/HrLine/HrLine";
 import Logo from "../../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MyButton from "../../share/MyButton/MyButton";
-import BlockForForm from "../../entities/BlockForForm/BlockForForm";
 import CheckStatus from "../../share/CheckStatus/CheckStatus";
-import { formFields } from ".";
+import { useConstant } from "../../storage/constant.storage";
+import { useUsers } from "../../storage/users.storage";
+import MyProfileForm from "../../widget/MyProfileForm/MyProfileForm";
 
 const MyProfile = () => {
   const chooseFileRef = useRef<HTMLInputElement>(null);
-  const [avatar, setAvatar] = useState("https://github.com/shadcn.png");
+  const navigate = useNavigate();
+  const [avatar, setAvatar] = useState<string>();
+  const { setIsLogin } = useConstant();
+  const { user, setUser } = useUsers();
+  const handleLogOut = () => {
+    setUser(null);
+    setIsLogin(false);
+    navigate("/");
+  };
+  useEffect(
+    () =>
+      user?.avatar
+        ? setAvatar(user?.avatar)
+        : setAvatar("https://github.com/shadcn.png"),
+    [],
+  );
   return (
     <main className="absolute left-0 flex h-screen w-full items-center justify-center bg-black/30">
       <div className="flex h-5/6 w-5/6 flex-col items-center justify-around rounded-md bg-primary-bg shadow-all shadow-white/20">
@@ -28,7 +44,7 @@ const MyProfile = () => {
           </nav>
           <h1 className="text-4xl">My Profile</h1>
           <nav>
-            <MyButton isFill={false} text="Log Out" />
+            <MyButton isFill={false} text="Log Out" onClick={handleLogOut} />
           </nav>
         </header>
         <span className="my-5 w-11/12">
@@ -38,16 +54,8 @@ const MyProfile = () => {
         <section className="flex h-3/5 w-full justify-around">
           {/* User data section */}
           <div className="flex w-3/5 flex-col items-center justify-center gap-4">
-            <div className="flex flex-col gap-3">
-              {formFields.map(({ label, placeholder, type }) => (
-                <BlockForForm
-                  key={label}
-                  title={label}
-                  placeholder={placeholder}
-                  type={type}
-                />
-              ))}
-            </div>
+            {/* Form */}
+            <MyProfileForm />
             <div className="flex w-full items-center justify-center gap-7 text-lg">
               <div>
                 <span>Tariff plan: </span>

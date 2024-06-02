@@ -1,5 +1,5 @@
 export const FILMS_URL =
-  "https://mocki.io/v1/f92c939f-a251-4efc-8765-84f39a79591a";
+  "https://mocki.io/v1/425b8432-fb29-4257-8933-621c6dc26aeb";
 export const USERS_URL =
   "https://mocki.io/v1/5f40396a-1340-4fe8-a584-f1f1ebb0ee9e";
 
@@ -54,7 +54,7 @@ export const USERS_URL =
 //       "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
 //     description:
 //       "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
-//     isFavorite: "true",
+//     isFavorite: "false",
 //     rate: "7",
 //     category: "serials",
 //     genre: "Comedy",
@@ -88,7 +88,7 @@ export const USERS_URL =
 //       "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
 //     description:
 //       "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
-//     isFavorite: "true",
+//     isFavorite: "false",
 //     rate: "9",
 //     category: "films",
 //     genre: "Science",
@@ -155,7 +155,7 @@ export const USERS_URL =
 //       "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
 //     description:
 //       "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
-//     isFavorite: "true",
+//     isFavorite: "false",
 //     rate: "9",
 //     category: "films",
 //     genre: "Comedy",
@@ -221,7 +221,7 @@ export const USERS_URL =
 //       "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
 //     description:
 //       "Tears of Steel is a live-action/CGI film by the Blender Institute. Licensed under the Creative Commons Attribution license.",
-//     isFavorite: "true",
+//     isFavorite: "false",
 //     rate: "10",
 //     category: "films",
 //     genre: "Science",
@@ -286,7 +286,7 @@ export const USERS_URL =
 //       "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
 //     description:
 //       "Big Buck Bunny is a short computer-animated comedy film by the Blender Institute, part of the Blender Foundation. Licensed under the Creative Commons Attribution license.",
-//     isFavorite: "true",
+//     isFavorite: "false",
 //     rate: "7",
 //     category: "films",
 //     genre: "Comedy",
@@ -351,7 +351,7 @@ export const USERS_URL =
 //       "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
 //     description:
 //       "Sintel is a short computer-animated fantasy film by the Blender Institute, part of the Blender Foundation. Licensed under the Creative Commons Attribution license.",
-//     isFavorite: "true",
+//     isFavorite: "false",
 //     rate: "8",
 //     category: "serials",
 //     genre: "Fantasy",
@@ -417,7 +417,7 @@ export const USERS_URL =
 //       "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
 //     description:
 //       "Big Buck Bunny is a short computer-animated comedy film by the Blender Institute, part of the Blender Foundation. Licensed under the Creative Commons Attribution license.",
-//     isFavorite: "true",
+//     isFavorite: "false",
 //     rate: "5",
 //     category: "serials",
 //     genre: "Comedy",
@@ -483,7 +483,7 @@ export const USERS_URL =
 //       "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
 //     description:
 //       "Sintel is a short computer-animated fantasy film by the Blender Institute, part of the Blender Foundation. Licensed under the Creative Commons Attribution license.",
-//     isFavorite: "true",
+//     isFavorite: "false",
 //     rate: "10",
 //     category: "serials",
 //     genre: "Fantasy",

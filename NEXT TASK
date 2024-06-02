@@ -1,9 +1,7 @@
-Create store (big deal) and fix all 50% (1: Films OK, 2: users - 50%)
+Create store (big deal) and fix all 70% (1: Films OK, 2: users - 70%)
 
-Create Login & Register Page !!!(MB above on Home screen?), add to route, connect with store (1 mode) and next step > (Firebase?) (2 mode)
-
-Create My Profile 80% ok (storage data)
-Create Price page 80% ok (storage data)
+Create My Profile 90% ok (storage data) NEED FIX WHEN USER INCOME I NEED REFRESH VALUE
+Create Price page 90% ok (storage data) NEED FIX WHEN USER TARIFF INCOME REFRESH PRICE CARD
 
 Remake users API (need fav films and serials that connect user and his fav movie)
 
@@ -29,5 +27,6 @@ OK Create filter for "Random"
 OK Fix button Random Film in left Bar
 OK Destructure "main". Moved router to separate component
 OK Fix genre "Action" filter
+1 variant OK Create Login & Register Page !!!(MB above on Home screen?), add to route, connect with store (1 mode) and next step > (Firebase?) (2 mode)
 
 NO SENSE Make the input "Search" + searchBtn should work when press key "Enter"

@@ -5,10 +5,20 @@ import HrLine from "../../share/HrLine/HrLine";
 import { Link } from "react-router-dom";
 import MyButton from "../../share/MyButton/MyButton";
 import { useConstant } from "../../storage/constant.storage";
+import ButtonSection from "../../entities/ButtonSection/ButtonSection";
+import Login from "../../widget/LogIn/Login";
+import Auth from "../Auth/Auth";
+import Register from "../../widget/Register/Register";
+import { useUsers } from "../../storage/users.storage";
 
 const TariffPlans = () => {
   const { priceVariant, setPriceVariant } = useConstant();
-
+  const { isLogin, auth, setIsLogin } = useConstant();
+  const { setUser } = useUsers();
+  const handleLogOut = () => {
+    setUser(null);
+    setIsLogin(false);
+  };
   return (
     <div className="flex h-screen w-full flex-col items-center">
       <header className="flex h-1/5 w-full items-center justify-around pt-4 text-primary-main">
@@ -24,12 +34,18 @@ const TariffPlans = () => {
           </Link>
         </nav>
         <h1 className="text-4xl">Pricing plans for teams of all sizes</h1>
-        <nav>
-          <Link to={"/my-profile"}>
-            <MyButton isFill={true} text="My Profile" />
-          </Link>
-          <MyButton isFill={false} text="Log Out" />
-        </nav>
+        {isLogin ? (
+          <nav>
+            <Link to={"/my-profile"}>
+              <MyButton isFill={true} text="My Profile" />
+            </Link>
+            <MyButton isFill={false} text="Log Out" onClick={handleLogOut} />
+          </nav>
+        ) : (
+          <nav>
+            <ButtonSection />
+          </nav>
+        )}
       </header>
       <div className="my-2 w-11/12">
         <HrLine />
@@ -62,6 +78,20 @@ const TariffPlans = () => {
         </button>
       </div>
       <PriceCards />
+      <div className="absolute top-44">
+
+      <Auth
+        children={
+          auth === "Register" ? (
+            <Register title="Register" />
+          ) : auth === "Log In" ? (
+            <Login title="Login" />
+          ) : (
+            ""
+          )
+        }
+        />
+        </div>
     </div>
   );
 };
