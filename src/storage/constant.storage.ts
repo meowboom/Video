@@ -28,7 +28,7 @@ export const useConstant = create<IUseConstant>((set) => ({
   activeIMG: 0,
   isLogin: false,
   auth: null,
-  isNotification: true,
+  isNotification: false,
 
   setSortActiveMethod: (sortActiveMethod) => set({ sortActiveMethod }),
   setPriceVariant: (priceVariant) => set({ priceVariant }),

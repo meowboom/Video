@@ -8,12 +8,22 @@ import { useConstant } from "../../storage/constant.storage";
 import { useUsers } from "../../storage/users.storage";
 import MyProfileForm from "../../widget/MyProfileForm/MyProfileForm";
 
+enum ETarriffe {
+  pro = "Professional",
+  individual = "Individual",
+  based = "Based",
+}
+
 const MyProfile = () => {
-  const chooseFileRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
+
   const [avatar, setAvatar] = useState<string>();
+  const chooseFileRef = useRef<HTMLInputElement>(null);
+  const [clearAll, setClearAll] = useState(false);
   const { setIsLogin } = useConstant();
-  const { user, setUser } = useUsers();
+  const { user, setUser, userData } = useUsers();
+  console.log(userData);
+
   const handleLogOut = () => {
     setUser(null);
     setIsLogin(false);
@@ -26,6 +36,10 @@ const MyProfile = () => {
         : setAvatar("https://github.com/shadcn.png"),
     [],
   );
+  const handleClearForm = () => {
+    setClearAll(true);
+    setTimeout(() => setClearAll(false), 1000);
+  };
   return (
     <main className="absolute left-0 flex h-screen w-full items-center justify-center bg-black/30">
       <div className="flex h-5/6 w-5/6 flex-col items-center justify-around rounded-md bg-primary-bg shadow-all shadow-white/20">
@@ -55,12 +69,18 @@ const MyProfile = () => {
           {/* User data section */}
           <div className="flex w-3/5 flex-col items-center justify-center gap-4">
             {/* Form */}
-            <MyProfileForm />
+            <MyProfileForm clearAll={clearAll} />
             <div className="flex w-full items-center justify-center gap-7 text-lg">
               <div>
                 <span>Tariff plan: </span>
                 <span className="underline underline-offset-4">
-                  {"Base plan"}
+                  {user?.tariff !== "" ? (
+                    ETarriffe[user.tariff]
+                  ) : (
+                    <Link to={"/tariff-plans"} className="animate-pulse">
+                      Select
+                    </Link>
+                  )}
                 </span>
               </div>
               <div className="flex">
@@ -76,11 +96,11 @@ const MyProfile = () => {
             </div>
           </div>
           {/* Avatar section */}
-          <div className="flex w-2/5 flex-col items-center justify-center">
+          <div className="flex w-2/5 flex-col items-center justify-center rounded-md">
             <img
               src={avatar}
               alt="avatar"
-              className="w-max-[300px] h-max-[300px] mb-4 h-auto w-3/5 bg-white/40"
+              className="w-max-[300px] h-max-[300px] mb-4 h-auto w-3/5 rounded-md bg-white/40"
             />
             <button
               onClick={() =>
@@ -96,7 +116,7 @@ const MyProfile = () => {
         {/* Button section */}
         <section className="h-1/6 text-sm">
           <MyButton isFill={true} text="Save change" />
-          <MyButton isFill={false} text="Cancel" />
+          <MyButton isFill={false} text="Clear all" onClick={handleClearForm} />
         </section>
       </div>
     </main>

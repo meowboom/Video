@@ -6,10 +6,35 @@ import Login from "../../widget/LogIn/Login";
 import Auth from "../Auth/Auth";
 import { useConstant } from "../../storage/constant.storage";
 import Register from "../../widget/Register/Register";
+import {
+  Notification,
+  NotificationType,
+} from "../../share/Notification/Notification";
+import { useFilms } from "../../storage/films.storage";
 
 type Props = { children?: ReactNode };
 const HomeScreen = ({ children }: Props) => {
-  const { auth } = useConstant();
+  const { auth, isLogin } = useConstant();
+  const { copyFilms } = useFilms();
+  // ONLY TEST 
+  const arr = [1, 2, 7];
+  const first = () => {
+    const newArr = copyFilms.map((film) => {
+      if (arr.includes(Number(film.id))) {
+        // Преобразуем film.id в число для точного сравнения
+        return {
+          ...film,
+          isFavorite: true,
+        };
+      } else {
+        return film;
+      }
+    });
+
+    console.log(newArr); // Логируем обновленный массив
+    return newArr; // Возвращаем обновленный массив, если нужно
+  };
+  first();
   return (
     <div className="h-full w-full ">
       <Header />
@@ -31,6 +56,14 @@ const HomeScreen = ({ children }: Props) => {
           />
         </div>
       </div>
+      {isLogin && (
+        <Notification
+          key={1}
+          message="You enter to system"
+          title="Success"
+          type={NotificationType.success}
+        />
+      )}
     </div>
   );
 };

@@ -13,7 +13,6 @@ const VideoCard = ({
   year,
 }: IVideoCard) => {
   const [fav, setFav] = useState(isFavorite === "true" ? true : false);
-  console.log(fav);
 
   return (
     <div className="flex h-[400px] w-64 cursor-pointer flex-col items-center justify-center overflow-hidden rounded-lg bg-[#D9D9D9]/5 p-[2px] text-center shadow-all shadow-[#D9D9D9]/30 duration-500  hover:shadow-primary-hover">

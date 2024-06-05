@@ -1,11 +1,13 @@
 // ------------------------  For Users ------------------------------------------------
-
-export interface IUser {
-  id: number;
+export interface IUserData {
   name: string;
   password: string;
   email: string;
   phone: string;
+}
+export interface IUser {
+  id: number;
+  userInfo: IUserData;
   tariff: string;
   avatar: string;
   paymentStatus: string;

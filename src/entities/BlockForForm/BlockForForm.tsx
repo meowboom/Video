@@ -1,16 +1,18 @@
 import React, { useRef, useState, useEffect } from "react";
 
-type Props = {
+interface IBlockForm {
   title: string;
   value?: string;
   placeholder: string;
   type: string;
-};
+}
 
-const BlockForForm = ({ title, value, placeholder, type }: Props) => {
+const BlockForForm = ({ title, value, placeholder, type }: IBlockForm) => {
   const [isEdit, setIsEdit] = useState(false);
   const [inputValue, setInputValue] = useState(value);
   const inputRef = useRef<HTMLInputElement>(null);
+  console.log("value", value);
+  console.log("inputValue", inputValue);
 
   useEffect(() => {
     if (isEdit && inputRef.current) {
@@ -18,13 +20,14 @@ const BlockForForm = ({ title, value, placeholder, type }: Props) => {
     }
   }, [isEdit]);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  useEffect(() => setInputValue(value), [value]);
+  const toggleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
 
   return (
     <div className="flex items-center justify-end gap-2">
-      <label htmlFor="">{title}</label>
+      <label htmlFor="title">{title}</label>
       <input
         type={type}
         ref={inputRef}
@@ -33,10 +36,11 @@ const BlockForForm = ({ title, value, placeholder, type }: Props) => {
         }`}
         placeholder={placeholder}
         value={inputValue}
-        onChange={handleInputChange}
+        onChange={toggleInput}
         onClick={() => !isEdit && setIsEdit(true)}
       />
       <button
+        type="button"
         onClick={() => setIsEdit((prev) => !prev)}
         className="rounded-sm px-3 py-[1px] text-sm decoration-primary-main underline-offset-4 duration-300 hover:bg-white/10 hover:underline"
       >

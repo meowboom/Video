@@ -1,5 +1,5 @@
 import { XCircleIcon } from "@heroicons/react/20/solid";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useConstant } from "../../storage/constant.storage";
 
 interface INotification {
@@ -21,16 +21,16 @@ export const Notification = ({
   type = NotificationType.success,
 }: INotification) => {
   const { isNotification, setIsNotification } = useConstant();
-  //   useEffect(() => {
-  //     let timer: any;
-  //     if (isNotification) {
-  //       timer = setTimeout(() => setIsNotification(false), 3000);
-  //     }
-  //     return () => clearTimeout(timer);
-  //   }, [isNotification]);
+  useEffect(() => {
+    let timer: any;
+    if (isNotification) {
+      timer = setTimeout(() => setIsNotification(false), 3000);
+    }
+    return () => clearTimeout(timer);
+  }, [isNotification]);
   return (
     <div
-      className={`${isNotification ? "flex" : "hidden"} right-30 fixed bottom-20 items-center  border-l-4 bg-white/90 p-4 ${type} rounded-md shadow-md`}
+      className={`${isNotification ? "flex" : "hidden"} fixed bottom-20 right-20 items-center  border-l-4 bg-white/90 p-4 ${type} rounded-md shadow-md`}
     >
       <div className="flex-grow">
         <p className="font-bold">{title}</p>

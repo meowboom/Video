@@ -22,7 +22,7 @@ const UserName = () => {
         <div className="cursor-pointer ">
           <span className="mr-1 text-lg">Account:</span>
           <span className="text-xl font-bold text-primary-main underline underline-offset-4">
-            {isLogin && user?.name}
+            {isLogin && user?.userInfo?.name}
           </span>
         </div>
       </div>

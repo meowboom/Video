@@ -1,7 +1,6 @@
-Create store (big deal) and fix all 70% (1: Films OK, 2: users - 70%)
-
-Create Push notification success/unsuccess  
 Create My Profile 90% ok (storage data) NEED FIX WHEN USER INCOME I NEED REFRESH VALUE
+
+Create store (big deal) and fix all 70% (1: Films OK, 2: users - 70%)
 Create Price page 90% ok (storage data) NEED FIX WHEN USER TARIFF INCOME REFRESH PRICE CARD
 
 Remake users API (need fav films and serials that connect user and his fav movie)
@@ -20,6 +19,7 @@ OK Add Link to Logo
 OK Link to FilmPage for Daily top
 OK Find/Create json
 
+OK Create Push notification success/unsuccess  
 OK Add to PriceCard paid switcher
 OK Fix "Search" I think problem that CategoryCard return "Not find" bcs lenght == 9
 OK Why if I back to main page all films sorted?
