@@ -11,6 +11,7 @@ export interface IUser {
   tariff: string;
   avatar: string;
   paymentStatus: string;
+  favorite: [];
 }
 
 export interface IUsers extends Array<IUser> {}
