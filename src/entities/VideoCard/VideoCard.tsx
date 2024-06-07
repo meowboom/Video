@@ -1,18 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HrLine from "../../share/HrLine/HrLine";
 import "./index.css";
 import { HeartIcon } from "@heroicons/react/20/solid";
 import { IVideoCard } from "../../data/types";
+import { useUsers } from "../../storage/users.storage";
+import { useConstant } from "../../storage/constant.storage";
 
 const VideoCard = ({
   description,
-  isFavorite,
   thumbnailUrl,
   rate,
   title,
   year,
+  id,
 }: IVideoCard) => {
-  const [fav, setFav] = useState(isFavorite === "true" ? true : false);
+  const [fav, setFav] = useState<null | boolean>(null);
+  const { userPushFav, userRemoveFav, user } = useUsers();
+  const { isLogin } = useConstant();
+
+  useEffect(() => {
+    if (user?.favorite.includes(Number(id))) {
+      setFav(true);
+    }
+  }, [user?.favorite]);
 
   return (
     <div className="flex h-[400px] w-64 cursor-pointer flex-col items-center justify-center overflow-hidden rounded-lg bg-[#D9D9D9]/5 p-[2px] text-center shadow-all shadow-[#D9D9D9]/30 duration-500  hover:shadow-primary-hover">
@@ -70,7 +80,12 @@ const VideoCard = ({
           <button
             onClick={(e) => {
               e.preventDefault();
-              setFav(!fav);
+
+              if (isLogin) {
+                user?.favorite.includes(Number(id))
+                  ? userRemoveFav(id)
+                  : userPushFav(id);
+              }
             }}
             className=" before:absolute before:translate-x-5 before:translate-y-1 before:rounded-lg before:bg-white/20 before:px-3 before:py-[2px] before:text-sm before:text-gray-300 before:opacity-0 before:duration-700  before:ease-in-out before:content-['favorite']  hover:before:opacity-100"
           >

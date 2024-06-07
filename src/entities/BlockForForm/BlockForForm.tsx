@@ -11,8 +11,8 @@ const BlockForForm = ({ title, value, placeholder, type }: IBlockForm) => {
   const [isEdit, setIsEdit] = useState(false);
   const [inputValue, setInputValue] = useState(value);
   const inputRef = useRef<HTMLInputElement>(null);
-  console.log("value", value);
-  console.log("inputValue", inputValue);
+  // console.log("value", value);
+  // console.log("inputValue", inputValue);
 
   useEffect(() => {
     if (isEdit && inputRef.current) {

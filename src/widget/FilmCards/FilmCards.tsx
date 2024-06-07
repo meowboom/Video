@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import VideoCard from "../../entities/VideoCard/VideoCard";
 import SortBtn from "../../share/SortBtn/SortBtn";
 import { BTN_FOR_SORT } from "../MainBody";
@@ -7,30 +7,10 @@ import { IFilm } from "../../data/types";
 import { useFilms } from "../../storage/films.storage";
 import { uniqueKey } from "../../share/helpers";
 import { useConstant } from "../../storage/constant.storage";
-import { useUsers } from "../../storage/users.storage";
 
 const FilmCards = () => {
-  const { copyFilms, filterFilmsByParams, sortByParams, setCopyFilms } =
-    useFilms();
+  const { copyFilms, filterFilmsByParams, sortByParams } = useFilms();
   const { sortActiveMethod, setSortActiveMethod, setActiveIMG } = useConstant();
-  const { user } = useUsers();
-  useEffect(() => filterFilmsByParams("films"), []);
-  // ONLY TEST
-  const updatesFIlms = (arr) => {
-    const newArr = copyFilms.map((film) => {
-      if (arr.includes(Number(film.id))) {
-        // Преобразуем film.id в число для точного сравнения
-        return {
-          ...film,
-          isFavorite: true,
-        };
-      } else {
-        return film;
-      }
-    });
-
-    return newArr; // Возвращаем обновленный массив, если нужно
-  };
 
   const renderFilmsCard = (arr: []) =>
     arr.map((film: IFilm) => (
@@ -49,15 +29,8 @@ const FilmCards = () => {
         </div>
       </Link>
     ));
-  useEffect(() => {
-    if (user) {
-      const arr = updatesFIlms(user.favorite);
-      console.log("arr", arr);
-      setCopyFilms(arr);
-      console.log("copyFilms", copyFilms);
-    }
-  }, [user]);
 
+  useEffect(() => filterFilmsByParams("films"), []);
   return (
     <div className="pb-10">
       <div className="invisible mb-4 mt-1 flex w-full items-center justify-center lg:visible">

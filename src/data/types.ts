@@ -90,7 +90,7 @@ export interface IVideoCard {
   isFavorite: string;
   rate: string;
   year: string;
-  id: string;
+  id: string | number | any;
 }
 
 // ------------------------  Price Cards  ------------------------------------------------
