@@ -1,15 +1,12 @@
-Create My Profile 90% ok (storage data) NEED FIX WHEN USER INCOME I NEED REFRESH VALUE
-
-Create store (big deal) and fix all 70% (1: Films OK, 2: users - 70%)
+Create My Profile 90% ok  3: Add updtate func to BTM "Save change" 2: BTN clear all firs only first 1: (storage data) NEED FIX WHEN USER INCOME I NEED REFRESH VALUE: DONE 
 Create Price page 90% ok (storage data) NEED FIX WHEN USER TARIFF INCOME REFRESH PRICE CARD
+Add midlewear? (if i login and refresh page now me gets thron off the page )
 
-Remake users API (need fav films and serials that connect user and his fav movie)
-
-Fix "favorite" (1:if i want add to favorite me redirecting) OK + 2: css 3:fav must update state
+Create store (big deal) and fix all 90% (1: Films OK, 2: users - 90%)
 Next task > Create sort for category 90% OK (BUT FAVORITE WORK NOT CORRECTLY (i can fixed add to method another 'if' and sorted films.filter(isActiveCategory).sort>...))
 
-Fix PriceCard position a small screen
 Finalize video player in Film Page
+Fix PriceCard position a small screen
 In FilmPage add Arrow Back and mb feedback?
 
 Adaptation (It last)
@@ -29,5 +26,7 @@ OK Fix button Random Film in left Bar
 OK Destructure "main". Moved router to separate component
 OK Fix genre "Action" filter
 1 variant OK Create Login & Register Page !!!(MB above on Home screen?), add to route, connect with store (1 mode) and next step > (Firebase?) (2 mode)
+OK Remake users API (need fav films and serials that connect user and his fav movie)
+Fix "favorite" 1:if i want add to favorite me redirecting (prevent defult) OK + 2: fav must update state OK 
 
 NO SENSE Make the input "Search" + searchBtn should work when press key "Enter"

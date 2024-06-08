@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { IUser, IUserData, IUsers } from "../data/types";
+import { persist } from "zustand/middleware";
 
 // Zustand Users Store
 
@@ -16,23 +17,43 @@ export interface IUsersStore {
   userRemoveFav: (id: string | number) => void;
 }
 
-export const useUsers = create<IUsersStore>((set, get) => ({
-  users: null,
-  usersCopy: null,
-  user: null,
-  userData: null,
+export const useUsers = create<IUsersStore>()(
+  persist(
+    (set, get) => ({
+      users: null,
+      usersCopy: null,
+      user: null,
+      userData: null,
 
-  setUsers: (users) => set({ users }),
-  setUsersCopy: (usersCopy) => set({ usersCopy }),
-  setUser: (user) => set({ user }),
-  setUserData: (userData) => set({ userData }),
+      setUsers: (users) => set({ users }),
+      setUsersCopy: (usersCopy) => set({ usersCopy }),
+      setUser: (user) => set({ user }),
+      setUserData: (userData) => set({ userData }),
 
-  userPushFav: (id) => get().user?.favorite.push(Number(id)),
-  userRemoveFav: (id) => {
-    const newFav = get().user?.favorite.filter(
-      (idFilm) => Number(idFilm) !== Number(id),
-    );
+      userPushFav: (id) => {
+        const user = get().user;
+        if (user && user.favorite) {
+          set({
+            user: {
+              ...user,
+              favorite: [...user.favorite, Number(id)],
+            },
+          });
+        }
+      },
 
-    return set({ user: { ...get().user, favorite: newFav } });
-  },
-}));
+      userRemoveFav: (id) => {
+        const user = get().user;
+        if (user && user.favorite) {
+          const newFav = user.favorite.filter(
+            (idFilm) => Number(idFilm) !== Number(id),
+          );
+          set({ user: { ...user, favorite: newFav } });
+        }
+      },
+    }),
+    {
+      name: "user-store",
+    },
+  ),
+);

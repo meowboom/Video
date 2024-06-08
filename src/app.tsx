@@ -3,6 +3,7 @@ import Loader from "./share/Loader/Loader";
 import { useFetchFilms, useFetchUsers } from "./share/hooks";
 import { useFilms } from "./storage/films.storage";
 import { useUsers } from "./storage/users.storage";
+import { useConstant } from "./storage/constant.storage";
 
 interface IApp {
   children: ReactNode;
@@ -12,9 +13,10 @@ const App = ({ children }: IApp) => {
   const { data: filmsData, isLoading: isLoadingFilms } = useFetchFilms();
   const { data: usersData, isLoading: isLoadingUsers } = useFetchUsers();
   const { films, setFilms } = useFilms();
-  const { setUsers, setUsersCopy } = useUsers();
-
+  const { setUsers, setUsersCopy, user } = useUsers();
+  const { setIsLogin } = useConstant();
   useEffect(() => {
+    user && setIsLogin(true);
     filmsData && setFilms(filmsData);
     usersData && setUsers(usersData);
     usersData && setUsersCopy(usersData);
