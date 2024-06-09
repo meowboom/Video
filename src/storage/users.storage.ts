@@ -51,6 +51,26 @@ export const useUsers = create<IUsersStore>()(
           set({ user: { ...user, favorite: newFav } });
         }
       },
+      setUpdateUserData: (id, value) => {
+        const userData = get().userData;
+        const setUserData = get().setUserData;
+        switch (id) {
+          case "name":
+            userData?.name !== value &&
+              set({ userData: { ...userData, name: value } });
+            break;
+          case "email":
+            userData?.name !== value &&
+              set({ userData: { ...userData, email: value } });
+            break;
+          case "phone":
+            userData?.name !== value &&
+              set({ userData: { ...userData, phone: value } });
+            break;
+          default:
+            break;
+        }
+      },
     }),
     {
       name: "user-store",

@@ -58,8 +58,9 @@ export interface IFilmsStore {
   ) => void | unknown | undefined | null | any;
   getFilm: (id: string) => any;
   getDailyFilm: () => IFilm;
-  filterFilmsByParams: (value: string) => any;
+  filterFilmsByParams: (value: string, arr:[]) => any;
   sortByParams: (param: ENUMSortBTN) => any;
+  setUpdateCopyFilmsByUser: (value: any) => any;
 }
 
 export enum ENUMSortBTN {

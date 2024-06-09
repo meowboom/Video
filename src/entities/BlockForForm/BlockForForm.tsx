@@ -1,19 +1,19 @@
 import React, { useRef, useState, useEffect } from "react";
+import { useConstant } from "../../storage/constant.storage";
 
 interface IBlockForm {
   title: string;
   value?: string;
   placeholder: string;
   type: string;
+  id: string;
 }
 
-const BlockForForm = ({ title, value, placeholder, type }: IBlockForm) => {
+const BlockForForm = ({ id, title, value, placeholder, type }: IBlockForm) => {
   const [isEdit, setIsEdit] = useState(false);
   const [inputValue, setInputValue] = useState(value);
   const inputRef = useRef<HTMLInputElement>(null);
-  // console.log("value", value);
-  // console.log("inputValue", inputValue);
-
+  const { setIsBtnDisable } = useConstant();
   useEffect(() => {
     if (isEdit && inputRef.current) {
       inputRef.current.focus();
@@ -21,13 +21,26 @@ const BlockForForm = ({ title, value, placeholder, type }: IBlockForm) => {
   }, [isEdit]);
 
   useEffect(() => setInputValue(value), [value]);
-  const toggleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+  useEffect(
+    () => (inputValue === "" ? setIsBtnDisable(true) : setIsBtnDisable(false)),
+    [inputValue],
+  );
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
 
+  const emptyValueClass =
+    inputValue === "" && (id === "name" || id === "phone" || id === "email")
+      ? "before:opacity-100 before:content-empty-message"
+      : "before:opacity-0 before:content-['']";
+
   return (
-    <div className="flex items-center justify-end gap-2">
-      <label htmlFor="title">{title}</label>
+    <div
+      className={` ${emptyValueClass} relative flex items-center justify-end gap-2 before:absolute before:translate-x-56 before:translate-y-1 before:rounded-lg before:bg-primary-main before:px-3 before:py-[2px] before:text-sm before:text-gray-300 before:duration-700 before:ease-in-out`}
+      id={id}
+    >
+      <label htmlFor={id}>{title}</label>
       <input
         type={type}
         ref={inputRef}
@@ -36,7 +49,7 @@ const BlockForForm = ({ title, value, placeholder, type }: IBlockForm) => {
         }`}
         placeholder={placeholder}
         value={inputValue}
-        onChange={toggleInput}
+        onChange={handleChange}
         onClick={() => !isEdit && setIsEdit(true)}
       />
       <button

@@ -30,6 +30,9 @@ export default {
         "secondary-green": "#16E783",
         "secondary-yellow": "#FFF500",
       },
+      content: {
+        "empty-message": "'the value cannot be empty'",
+      },
     },
   },
   plugins: [],

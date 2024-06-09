@@ -9,6 +9,7 @@ export interface IUseConstant {
   isLogin: boolean;
   auth: string | null;
   isNotification: boolean;
+  isBtnDisable: boolean;
 
   setSortActiveMethod: (value: null | string) => void;
   setPriceVariant: (value: boolean) => void;
@@ -18,6 +19,7 @@ export interface IUseConstant {
   setIsLogin: (value: boolean) => void;
   setAuth: (value: string | null) => void;
   setIsNotification: (value: boolean) => void;
+  setIsBtnDisable: (value: boolean) => void;
 }
 
 export const useConstant = create<IUseConstant>((set) => ({
@@ -29,6 +31,7 @@ export const useConstant = create<IUseConstant>((set) => ({
   isLogin: false,
   auth: null,
   isNotification: false,
+  isBtnDisable: false,
 
   setSortActiveMethod: (sortActiveMethod) => set({ sortActiveMethod }),
   setPriceVariant: (priceVariant) => set({ priceVariant }),
@@ -38,4 +41,5 @@ export const useConstant = create<IUseConstant>((set) => ({
   setIsLogin: (isLogin) => set({ isLogin }),
   setAuth: (auth) => set({ auth }),
   setIsNotification: (isNotification) => set({ isNotification }),
+  setIsBtnDisable: (isBtnDisable) => set({ isBtnDisable }),
 }));

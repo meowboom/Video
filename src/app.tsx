@@ -15,12 +15,14 @@ const App = ({ children }: IApp) => {
   const { films, setFilms } = useFilms();
   const { setUsers, setUsersCopy, user } = useUsers();
   const { setIsLogin } = useConstant();
+
   useEffect(() => {
     user && setIsLogin(true);
     filmsData && setFilms(filmsData);
     usersData && setUsers(usersData);
     usersData && setUsersCopy(usersData);
   }, [filmsData, usersData]);
+
   return (
     <>
       {isLoadingFilms && isLoadingUsers && (

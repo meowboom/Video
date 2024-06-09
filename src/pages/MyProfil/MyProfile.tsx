@@ -19,10 +19,8 @@ const MyProfile = () => {
 
   const [avatar, setAvatar] = useState<string>();
   const chooseFileRef = useRef<HTMLInputElement>(null);
-  const [clearAll, setClearAll] = useState(false);
-  const { setIsLogin } = useConstant();
-  const { user, setUser, userData } = useUsers();
-  console.log(userData);
+  const { setIsLogin, isBtnDisable } = useConstant();
+  const { user, setUser } = useUsers();
 
   const handleLogOut = () => {
     setUser(null);
@@ -36,10 +34,6 @@ const MyProfile = () => {
         : setAvatar("https://github.com/shadcn.png"),
     [],
   );
-  const handleClearForm = () => {
-    setClearAll(true);
-    setTimeout(() => setClearAll(false), 1000);
-  };
   return (
     <main className="absolute left-0 flex h-screen w-full items-center justify-center bg-black/30">
       <div className="flex h-5/6 w-5/6 flex-col items-center justify-around rounded-md bg-primary-bg shadow-all shadow-white/20">
@@ -69,7 +63,7 @@ const MyProfile = () => {
           {/* User data section */}
           <div className="flex w-3/5 flex-col items-center justify-center gap-4">
             {/* Form */}
-            <MyProfileForm clearAll={clearAll} />
+            <MyProfileForm />
             <div className="flex w-full items-center justify-center gap-7 text-lg">
               <div>
                 <span>Tariff plan: </span>
@@ -115,8 +109,11 @@ const MyProfile = () => {
         </section>
         {/* Button section */}
         <section className="h-1/6 text-sm">
-          <MyButton isFill={true} text="Save change" />
-          <MyButton isFill={false} text="Clear all" onClick={handleClearForm} />
+          <MyButton
+            isFill={true}
+            text="Save change"
+            btnDisable={isBtnDisable}
+          />
         </section>
       </div>
     </main>

@@ -9,28 +9,27 @@ import { uniqueKey } from "../../share/helpers";
 import { useConstant } from "../../storage/constant.storage";
 
 const FilmCards = () => {
-  const { copyFilms, filterFilmsByParams, sortByParams } = useFilms();
-  const { sortActiveMethod, setSortActiveMethod, setActiveIMG } = useConstant();
+  const { copyFilms, sortByParams } = useFilms();
+  const { sortActiveMethod, setSortActiveMethod } = useConstant();
+
+  // console.log(copyFilms);
 
   const renderFilmsCard = (arr: []) =>
     arr.map((film: IFilm) => (
-      <Link key={uniqueKey()} to={`/id${film.id}`}>
-        <div onClick={() => setActiveIMG(0)}>
-          <VideoCard
-            key={uniqueKey()}
-            id={film.id}
-            year={film?.uploadTime?.year}
-            description={film.description}
-            isFavorite={film.isFavorite}
-            thumbnailUrl={film.thumbnailUrl}
-            rate={film.rate}
-            title={film.title}
-          />
-        </div>
+      <Link key={uniqueKey()} to={`/id:${film.id}`}>
+        <VideoCard
+          key={uniqueKey()}
+          id={film.id}
+          year={film?.uploadTime?.year}
+          description={film.description}
+          isFavorite={film.isFavorite}
+          thumbnailUrl={film.thumbnailUrl}
+          rate={film.rate}
+          title={film.title}
+        />
       </Link>
     ));
 
-  useEffect(() => filterFilmsByParams("films"), []);
   return (
     <div className="pb-10">
       <div className="invisible mb-4 mt-1 flex w-full items-center justify-center lg:visible">

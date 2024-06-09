@@ -9,16 +9,35 @@ export const useFilms = create<IFilmsStore>((set, get) => ({
 
   setFilms: (films) => set({ films }),
   setCopyFilms: (copyFilms) => set({ copyFilms }),
+  setUpdateCopyFilmsByUser: (arr) => {
+    const upd = get().copyFilms.map((film) => {
+      if (arr.includes(Number(film.id))) {
+        return { ...film, isFavorite: "true" };
+      } else {
+        return film;
+      }
+    });
+    set({ copyFilms: upd });
+  },
 
   getFilm: (id: string) => get().films.find((film) => film.id === id),
 
   getDailyFilm: () =>
     get().films.toSorted((a, b) => Number(b.views) - Number(a.views))[0], //all worked but why mistake?
 
-  filterFilmsByParams: (value: string) => {
-    const filteredFilms = get().films.filter(
-      (film) => film?.category === value.toLowerCase().trim(),
-    );
+  filterFilmsByParams: (value, arr) => {
+    console.log(arr);
+    const filteredFilms = get()
+      .films.filter((film) => film?.category === value.toLowerCase().trim())
+      .map((film) => {
+        if (arr.includes(Number(film.id))) {
+          return { ...film, isFavorite: "true" };
+        } else {
+          return film;
+        }
+      });
+
+    console.log(filteredFilms);
 
     return get().setCopyFilms(filteredFilms);
   },
@@ -54,6 +73,7 @@ export const useFilms = create<IFilmsStore>((set, get) => ({
       }
     };
     const validationArr = validation();
+    console.log(validationArr);
 
     if (validationArr !== validationArr) {
       return get().setCopyFilms(validation());

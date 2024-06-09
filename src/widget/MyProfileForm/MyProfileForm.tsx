@@ -1,58 +1,49 @@
 import React, { useEffect, useState } from "react";
 import BlockForForm from "../../entities/BlockForForm/BlockForForm";
 import { useUsers } from "../../storage/users.storage";
-interface IMyProfileForm {
-  clearAll: boolean;
-}
-const MyProfileForm = ({ clearAll }: IMyProfileForm) => {
-  const [currentName, setCurrentName] = useState("");
-  const [currentEmail, setCurrentEmail] = useState("");
-  const [currentPhone, setCurrentPhone] = useState("");
-  const { user } = useUsers();
+const MyProfileForm = () => {
+  const { userData } = useUsers();
+  const { email, name, phone } = userData;
 
-  useEffect(() => {
-    if (clearAll) {
-      setCurrentName("");
-      setCurrentEmail("");
-      setCurrentPhone("");
-    }
-  }, [clearAll]);
-  useEffect(() => {
-    if (user) {
-      setCurrentName(user?.userInfo?.name);
-      setCurrentEmail(user?.userInfo?.email);
-      setCurrentPhone(user?.userInfo?.phone);
-    }
-  }, [user]);
   return (
     <form>
-      {user && (
+      {userData && (
         <section className="flex flex-col gap-3">
           <BlockForForm
+            id="name"
             title="Name:"
             placeholder="Enter you name"
             type="text"
-            value={currentName}
+            value={name}
           />
           <BlockForForm
+            id="email"
             title="Email:"
             placeholder="Enter you email"
             type="text"
-            value={currentEmail}
+            value={email}
           />
           <BlockForForm
+            id="phone"
             title="Phone:"
             placeholder="Enter you phone"
             type="text"
-            value={currentPhone}
+            value={phone}
           />
           <BlockForForm
+            id="pas"
             title="Password:"
             placeholder="Currently password"
             type="password"
           />
-          <BlockForForm title="New password:" placeholder="" type="password" />
           <BlockForForm
+            id="new_pas"
+            title="New password:"
+            placeholder=""
+            type="password"
+          />
+          <BlockForForm
+            id="rep_new_pas"
             title="Repeat new password:"
             placeholder=""
             type="password"
