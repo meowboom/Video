@@ -11,7 +11,6 @@ const PriceCard = ({
   isActive,
 }: IPriceCard) => {
   // fixed card position a small screen
-
   return (
     <div className="menu__container mx-auto mb-12 mt-[16vh] h-[200px] w-[100px] cursor-pointer rounded-md bg-[#D9D9D9]/20 py-4  text-center shadow-all shadow-white duration-500 ease-in-out hover:mt-[14vh] md:h-[400px]  md:w-[300px] md:animate-bounce-card lg:h-auto lg:w-[200px] 2xl:h-[426px] 2xl:w-[320px]">
       <div className="flex h-full w-full flex-col items-center justify-around">
@@ -22,7 +21,16 @@ const PriceCard = ({
         <span className="mb-3 text-primary-main md:text-3xl ">
           {isActive ? price * 12 : price} $
         </span>
-        <MyButton isFill={false} text="Buy now" key={"buy_now"} />
+        <MyButton
+          isFill={false}
+          text="Buy now"
+          key={"buy_now"}
+          onClick={() =>
+            confirm(
+              `Are you want buy: ${tariff} by ${isActive ? price * 12 : price}?`,
+            )
+          }
+        />
         <ul className="lg:text-md mt-2 flex flex-col gap-1 text-sm">
           {advantage && advantage.map((adv, id) => <li key={id}>{adv}</li>)}
         </ul>

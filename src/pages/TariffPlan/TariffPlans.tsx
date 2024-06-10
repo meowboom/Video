@@ -19,9 +19,10 @@ const TariffPlans = () => {
     setUser(null);
     setIsLogin(false);
   };
+
   return (
     <div className="flex h-screen w-full flex-col items-center">
-      <header className="flex h-1/5 w-full items-center justify-around pt-4 text-primary-main">
+      <header className="flex h-1/5 w-full flex-col items-center justify-around gap-4 pt-4 text-primary-main xl:flex-row">
         <nav>
           <Link to={"/"}>
             <img
@@ -47,7 +48,7 @@ const TariffPlans = () => {
           </nav>
         )}
       </header>
-      <div className="my-2 w-11/12">
+      <div className="my-4 w-11/12">
         <HrLine />
       </div>
       <div className="w-2/4 text-wrap py-5 text-center text-lg">
@@ -79,19 +80,18 @@ const TariffPlans = () => {
       </div>
       <PriceCards />
       <div className="absolute top-44">
-
-      <Auth
-        children={
-          auth === "Register" ? (
-            <Register title="Register" />
-          ) : auth === "Log In" ? (
-            <Login title="Login" />
-          ) : (
-            ""
-          )
-        }
+        <Auth
+          children={
+            auth === "Register" ? (
+              <Register title="Register" />
+            ) : auth === "Log In" ? (
+              <Login title="Login" />
+            ) : (
+              ""
+            )
+          }
         />
-        </div>
+      </div>
     </div>
   );
 };

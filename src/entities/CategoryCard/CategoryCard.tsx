@@ -4,6 +4,7 @@ import HrLine from "../../share/HrLine/HrLine";
 import { useFilms } from "../../storage/films.storage";
 import { randomValue } from "../../share/helpers";
 import { useConstant } from "../../storage/constant.storage";
+
 const CategoryCard = () => {
   const { filterFilmsByParams, films, setCopyFilms } = useFilms();
   const {
@@ -18,7 +19,7 @@ const CategoryCard = () => {
     (film) => film.category === activeCategory,
   );
   const handelCategory = (category: string) => {
-    filterFilmsByParams(category);
+    filterFilmsByParams(category, undefined);
     setActiveCategory(category);
     setGenre(null);
     setSortActiveMethod(null);

@@ -25,7 +25,7 @@ const PosterForFilmPage = ({ film }: { film: IFilm }) => {
         >
           <ArrowLeftIcon className="size-6" />
         </div>
-        <div className=" mt-2 flex h-full w-10/12  items-center justify-around gap-3 ">
+        <div className=" mt-2 flex h-full w-10/12  items-center justify-around gap-3 overflow-hidden ">
           {posters.map((img, i) => (
             <div key={uniqueKey()}>
               <button

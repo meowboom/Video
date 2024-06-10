@@ -26,18 +26,18 @@ export const useFilms = create<IFilmsStore>((set, get) => ({
     get().films.toSorted((a, b) => Number(b.views) - Number(a.views))[0], //all worked but why mistake?
 
   filterFilmsByParams: (value, arr) => {
-    console.log(arr);
-    const filteredFilms = get()
-      .films.filter((film) => film?.category === value.toLowerCase().trim())
-      .map((film) => {
+    let filteredFilms = get().films.filter(
+      (film) => film?.category === value.toLowerCase().trim(),
+    );
+    if (arr) {
+      filteredFilms = filteredFilms.map((film) => {
         if (arr.includes(Number(film.id))) {
           return { ...film, isFavorite: "true" };
         } else {
           return film;
         }
       });
-
-    console.log(filteredFilms);
+    }
 
     return get().setCopyFilms(filteredFilms);
   },
